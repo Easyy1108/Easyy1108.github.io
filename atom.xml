@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Wellcom</title>
+  
+  <subtitle>Wellcom!</subtitle>
+  <link href="http://easyy1108.github.io/atom.xml" rel="self"/>
+  
+  <link href="http://easyy1108.github.io/"/>
+  <updated>2021-03-16T02:21:05.410Z</updated>
+  <id>http://easyy1108.github.io/</id>
+  
+  <author>
+    <name>Easyy</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://easyy1108.github.io/2021/03161.html"/>
+    <id>http://easyy1108.github.io/2021/03161.html</id>
+    <published>2021-03-16T02:20:51.663Z</published>
+    <updated>2021-03-16T02:21:05.410Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+</feed>
