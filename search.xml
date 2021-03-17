@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>设计模式:单例模式</title>
+      <link href="2021/031739727.html"/>
+      <url>2021/031739727.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h1><ol><li><p><strong>什么是单例模式？</strong><br>单例模式是保证一个类只有一个实例，并且提供一个全局访问点。  </p></li><li><p><strong>如何创建单例模式？</strong>  </p><pre class="line-numbers language-none"><code class="language-none">public class Singleton&#123;        pricate static Singleton Instence;    &#125;  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li><li><p><strong>单例模式使用的场景？</strong><br>单例模式常用与管理类，如GameManager、UIManager、SoundManager等。</p></li><li><p><strong>单例模式与静态类的区别？</strong></p><ul><li>静态类是不可以继承的，因此不能继承MonoBehaviour类。而单例模式可以继承，可以继承MonoBehaviour类，可以在面板显示一些公共属性。</li><li>静态类中的成员会一直保存到应用退出，而单例类的成员会随着场景的切换而被销毁的。  </li></ul></li></ol><h1 id="泛型单例"><a href="#泛型单例" class="headerlink" title="泛型单例"></a>泛型单例</h1><p>优点：可以把所有的单例模式都继承自 泛型单例， 这样就不用在每个单例类中都再写一遍类的实例化。  </p><p>实现：</p><pre class="line-numbers language-none"><code class="language-none">public class Singleton&lt;T&gt; : MonoBehaviour where &lt;T&gt; : Singleton&lt;T&gt;&#123;    &#x2F;&#x2F;私有类型，需要提供公开的访问方法    private static T instence;      &#x2F;&#x2F;提供全局访问点    public static T Instance &#123;        get &#123;return instence;&#125;    &#125;    &#x2F;&#x2F;虚方法，可以在继承类中重写    protected virtual void Awake()&#123;        &#x2F;&#x2F;判断实例是否唯一        if(instence!&#x3D;null)&#123;            Destroy(gameObject);        &#125;else            instance &#x3D;(T)this;    &#125;    &#x2F;&#x2F;判断实例是否被初始化    public static bool IsInitialized&#123;        get&#123; return instance !&#x3D; null &#125;    &#125;    &#x2F;&#x2F;虚方法，可以被重写，如果被销毁，那么设置单例为空    protected virtual void OnDestory()&#123;        if(instance &#x3D;&#x3D; this)            intance &#x3D; null;    &#125;&#125;  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> -设计模式 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Unity在安卓上实现简单的相机旋转、缩放</title>
       <link href="2021/031614757.html"/>
       <url>2021/031614757.html</url>
