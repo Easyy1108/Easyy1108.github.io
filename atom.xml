@@ -6,7 +6,7 @@
   <link href="http://easyy1108.github.io/atom.xml" rel="self"/>
   
   <link href="http://easyy1108.github.io/"/>
-  <updated>2021-03-18T06:06:46.494Z</updated>
+  <updated>2021-03-18T13:10:44.494Z</updated>
   <id>http://easyy1108.github.io/</id>
   
   <author>
@@ -15,6 +15,163 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>C#中级-继承</title>
+    <link href="http://easyy1108.github.io/2021/031824724.html"/>
+    <id>http://easyy1108.github.io/2021/031824724.html</id>
+    <published>2021-03-18T12:37:54.000Z</published>
+    <updated>2021-03-18T13:10:44.494Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h1><p>当一个类继承一个类时，他会获得被继承类的特征<br>被继承类又叫做 父类 or 基类<br>继承类又叫做 子类 or 派生类<br>在继承时，需要注意父类的访问修饰符  </p><ol><li><font color =#00ffff> public</font><br>存在于子类中且可以被父类、子类、其他类访问  </li><li><font color =#00ffff>protected </font><br>存在于子类且可以被访问，但是在父类或子类以外不可以被访问  </li><li><font color=#00ffff>private </font><br>存在于子类，但是不可以被访问  </li></ol><p>在子类继承的项中，构造函数是个例外，因为构造函数对类是唯一的，不会共享。但是在子类调用构造函数时，欺父类的构造函数会被立即调用，由于类可能有多个不同的构造函数，因此我们可能想要控制调用哪个基类构造函数，为此可以使用关键字：<font color =#00ffff>base </font> 通过在子类构造函数的参数列表后面加一个 : baxe(“xxx”)<br>如果不显式调用基类的构造函数，则会隐式调用默认的构造函数<br>base 还可以用来访问基类的其他成员，例如重写。</p><p>在unity中，所有类都是默认继承自MonoBehaviour 类  </p><h2 id="MonoBehaviour"><a href="#MonoBehaviour" class="headerlink" title="MonoBehaviour"></a>MonoBehaviour</h2><h2 id="MonoBehaviour-九大生命周期"><a href="#MonoBehaviour-九大生命周期" class="headerlink" title="MonoBehaviour 九大生命周期"></a>MonoBehaviour 九大生命周期</h2><ol><li><font color =#00ffff>Awake()</font><br>在加载场景时运行 , 即在游戏开始之前初始化变量或者游戏状态 . 只执行一次</li><li><font color =#00ffff>OnEnable()</font><br>在激活当前脚本时调用 , 每激活一次就调用一次该方法</li><li><font color =#00ffff>Start()</font><br>在第一次启动时执行 , 用于游戏对象的初始化 , 在Awake 函数之后执行,只执行一次</li><li><font color =#00ffff>FixUpdate()</font><br>固定频率调用 , 与硬件无关, 可以在 Edit -&gt; Project Setting -&gt; Time -&gt; Fixed Time Step 修改</li><li><font color =#00ffff>Update()</font><br>几乎每一帧都在调用 , 取决于你的电脑硬件 , 不稳定</li><li><font color =#00ffff>LateUpdate()</font><br>在Update函数之后调用 , 一般用作摄像机跟随</li><li><font color =#00ffff>OnGUI()</font><br>调用速度是上面的两倍 , 一般用于老版本的额 GUI 显示</li><li><font color =#00ffff>Ondisable()</font><br>和 OnEnable 函数成对出现 , 只要从激活状态变为取消激活状态 , 就会执行一次 (和 OnEnable互斥)</li><li> <font color =#00ffff>OnDestroy()</font><br>当前游戏对象或游戏组件被销毁时执行</li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;继承&quot;&gt;&lt;a href=&quot;#继承&quot; class=&quot;headerlink&quot; title=&quot;继承&quot;&gt;&lt;/a&gt;继承&lt;/h1&gt;&lt;p&gt;当一个类继承一个类时，他会获得被继承类的特征&lt;br&gt;被继承类又叫做 父类 or 基类&lt;br&gt;继承类又叫做 子类 or 派生类&lt;br&gt;在继承时</summary>
+      
+    
+    
+    
+    
+    <category term="C#" scheme="http://easyy1108.github.io/tags/C/"/>
+    
+    <category term="MonoBehaviour" scheme="http://easyy1108.github.io/tags/MonoBehaviour/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C#中级-三元运算符</title>
+    <link href="http://easyy1108.github.io/2021/031839328.html"/>
+    <id>http://easyy1108.github.io/2021/031839328.html</id>
+    <published>2021-03-18T12:28:17.000Z</published>
+    <updated>2021-03-18T13:04:47.345Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="三元运算符"><a href="#三元运算符" class="headerlink" title="三元运算符"></a>三元运算符</h1><p>三元运算符是 if else 的另一种写法，在某些情况下，比if-else 更加简洁。<br>具体写法如下：  </p><pre class=" language-cs"><code class="language-cs">public class Test&#123;    private int a =1;    private int b =3;    private int max;    max=  a>b?a:b;&#125;</code></pre><p>上面的意思是 a&gt;b的话，max=a，否则max=b</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;三元运算符&quot;&gt;&lt;a href=&quot;#三元运算符&quot; class=&quot;headerlink&quot; title=&quot;三元运算符&quot;&gt;&lt;/a&gt;三元运算符&lt;/h1&gt;&lt;p&gt;三元运算符是 if else 的另一种写法，在某些情况下，比if-else 更加简洁。&lt;br&gt;具体写法如下：  &lt;/</summary>
+      
+    
+    
+    
+    
+    <category term="C#" scheme="http://easyy1108.github.io/tags/C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C#中级-泛型</title>
+    <link href="http://easyy1108.github.io/2021/03181926.html"/>
+    <id>http://easyy1108.github.io/2021/03181926.html</id>
+    <published>2021-03-18T11:44:55.000Z</published>
+    <updated>2021-03-18T12:25:52.124Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h1><p>泛型是一个特征，通过该特征，类型可以作为参数传递给类或者方法。像Unity中的GetComponent就是泛型方法。  </p><h2 id="如何创建泛型"><a href="#如何创建泛型" class="headerlink" title="如何创建泛型"></a>如何创建泛型</h2><pre class=" language-cs"><code class="language-cs">public class SomeClass&#123;    public T GenericMethod<T> (T param)&#123;        return param;    &#125;&#125;</code></pre><p>无论T是什么类型，传入什么类型，T就对应成这个类型。  </p><h2 id="限制泛型"><a href="#限制泛型" class="headerlink" title="限制泛型"></a>限制泛型</h2><ol><li>T是引用类型<pre class=" language-cs"><code class="language-cs">public class SomeClass&#123; public T GenericMethod<T> (T param) where T ：class &#123;     return param; &#125;&#125;</code></pre></li><li>T是值类型  <pre class=" language-cs"><code class="language-cs">public class SomeClass&#123; public T GenericMethod<T> (T param) where T : struct  &#123;     return param; &#125;&#125;</code></pre></li><li>不含参数的公共构造函数  <pre class=" language-cs"><code class="language-cs">public class SomeClass&#123; public T GenericMethod<T> (T param) where T :new () &#123;     return param; &#125;&#125;</code></pre></li><li>class name 限制为具体某个类型  <pre class=" language-cs"><code class="language-cs">public class SomeClass&#123; public T GenericMethod<T> (T param) where T: Transform &#123;     return param; &#125;&#125;</code></pre></li><li>Interfaces 接口类型  <pre class=" language-cs"><code class="language-cs">public class SomeClass&#123; public T GenericMethod<T> (T param) where T :IEnumerable &#123;     return param; &#125;&#125;</code></pre></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;泛型&quot;&gt;&lt;a href=&quot;#泛型&quot; class=&quot;headerlink&quot; title=&quot;泛型&quot;&gt;&lt;/a&gt;泛型&lt;/h1&gt;&lt;p&gt;泛型是一个特征，通过该特征，类型可以作为参数传递给类或者方法。像Unity中的GetComponent就是泛型方法。  &lt;/p&gt;
+&lt;h2 i</summary>
+      
+    
+    
+    
+    
+    <category term="C#" scheme="http://easyy1108.github.io/tags/C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C#中级-方法重载</title>
+    <link href="http://easyy1108.github.io/2021/03189249.html"/>
+    <id>http://easyy1108.github.io/2021/03189249.html</id>
+    <published>2021-03-18T11:24:58.000Z</published>
+    <updated>2021-03-18T13:07:33.284Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="方法重载"><a href="#方法重载" class="headerlink" title="方法重载"></a>方法重载</h1><pre class=" language-cs"><code class="language-cs">public class MathAdd&#123;    public int Add(int a,int b)&#123;        return a+b;    &#125;    public int  Add(int a,int b,int c)&#123;        return a+b+c;    &#125;    public string Add(string a, string b)&#123;        return a+b;    &#125;&#125;</code></pre><p>如上，我们需要实现一个俩个整数相加的方法，然后现在又需要实现 俩个字符串相加，那么是不是需要再写个string AddString()的方法呢?<br>这里就可以使用  方法重载  方法名相同，参数不同。这时，当我们在使用的时候会出现是三种情况：  </p><ol><li>输入的参数完全匹配–&gt;运行完全匹配的重载方法 。 </li><li>输入的参数不完全匹配–&gt;系统将查看所有的可能匹配项，并选择一个需要最少转换量的版本。</li><li>如果没有匹配项或者匹配项的多个版本所需转换量相同–&gt; Error!</li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;方法重载&quot;&gt;&lt;a href=&quot;#方法重载&quot; class=&quot;headerlink&quot; title=&quot;方法重载&quot;&gt;&lt;/a&gt;方法重载&lt;/h1&gt;&lt;pre class=&quot; language-cs&quot;&gt;&lt;code class=&quot;language-cs&quot;&gt;public class </summary>
+      
+    
+    
+    
+    
+    <category term="C#" scheme="http://easyy1108.github.io/tags/C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C#中级-static</title>
+    <link href="http://easyy1108.github.io/2021/031838921.html"/>
+    <id>http://easyy1108.github.io/2021/031838921.html</id>
+    <published>2021-03-18T10:49:33.000Z</published>
+    <updated>2021-03-18T13:07:39.521Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="static-静态"><a href="#static-静态" class="headerlink" title="static 静态"></a>static 静态</h1><p>静态成员，如变量和方法，是跨越类的所有实例共享的成员。  静态成员，可以通过类直接访问，而无需类的实例。 </p><h2 id="静态变量"><a href="#静态变量" class="headerlink" title="静态变量"></a>静态变量</h2><p>静态变量在类的每个对象中具有相同的值，也是说只要在一个地方修改了这个变量，其他地方的静态变量也会随之改变。例如：  </p><pre class=" language-cs"><code class="language-cs">public class Enemy&#123;    public static int count=0;    //构造函数    public void Enemy()&#123;        count++    &#125;&#125;public class Game&#123;    void Start()&#123;        Enemy enemy1=new Enemy();        Enemy enemy2=new Enemy();        Enemy enemy3=new Enemy();        int x = Enemy.count;    &#125;&#125;</code></pre><p>此时count = 3  </p><h2 id="静态方法"><a href="#静态方法" class="headerlink" title="静态方法"></a>静态方法</h2><p>静态方法属于类，而不属于类的实例，所以不需要通过类的实例来访问。 </p><h2 id="静态类"><a href="#静态类" class="headerlink" title="静态类"></a>静态类</h2><p>静态类的创建需要在 class 前加 static关键字，静态类不能继承不能实例化，且静态类中的方法、变量也需要是静态的。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;static-静态&quot;&gt;&lt;a href=&quot;#static-静态&quot; class=&quot;headerlink&quot; title=&quot;static 静态&quot;&gt;&lt;/a&gt;static 静态&lt;/h1&gt;&lt;p&gt;静态成员，如变量和方法，是跨越类的所有实例共享的成员。  静态成员，可以通过类直接访</summary>
+      
+    
+    
+    
+    
+    <category term="C#" scheme="http://easyy1108.github.io/tags/C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C#中级-属性</title>
+    <link href="http://easyy1108.github.io/2021/031817671.html"/>
+    <id>http://easyy1108.github.io/2021/031817671.html</id>
+    <published>2021-03-18T10:20:41.000Z</published>
+    <updated>2021-03-18T12:25:52.116Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h1><p>我们经常需要在A类中访问B类的成员变量，通常我们会将B类的成员变量设置为public，但是还有更好的方法，那就是使用属性（字段）。  </p><h2 id="创建属性"><a href="#创建属性" class="headerlink" title="创建属性"></a>创建属性</h2><pre class=" language-cs"><code class="language-cs">public class Player &#123;    private int experience;    //封装属性，一般与字段同名，首字母大写    public int Experience    &#123;        get｛return experience;｝        set｛experience =value;｝    &#125;&#125;  </code></pre><pre class=" language-cs"><code class="language-cs">public class Test&#123;    Player player =new Player();    player.Experience=1;    int currentEx=player.Experience;&#125;</code></pre><p>虽然 experience 在player类中是私有的，但是通过set 和get 可以访问这个属性。  </p><p>还可以通过get 和 set 来限制只读、只写、可写可读。  </p><p><font color = #00ffff>另外一种写法：  </font>  </p><pre class=" language-cs"><code class="language-cs">public int Level&#123;get;set;&#125;</code></pre><p>在vs中可以通过输入 “prpo” 加回车 快速生存</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;属性&quot;&gt;&lt;a href=&quot;#属性&quot; class=&quot;headerlink&quot; title=&quot;属性&quot;&gt;&lt;/a&gt;属性&lt;/h1&gt;&lt;p&gt;我们经常需要在A类中访问B类的成员变量，通常我们会将B类的成员变量设置为public，但是还有更好的方法，那就是使用属性（字段）。  &lt;/p</summary>
+      
+    
+    
+    
+    
+    <category term="C#" scheme="http://easyy1108.github.io/tags/C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C#中级-Extension Methods</title>
+    <link href="http://easyy1108.github.io/2021/031852531.html"/>
+    <id>http://easyy1108.github.io/2021/031852531.html</id>
+    <published>2021-03-18T09:46:38.000Z</published>
+    <updated>2021-03-18T13:07:26.838Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Extension-Methods"><a href="#Extension-Methods" class="headerlink" title="Extension Methods"></a>Extension Methods</h1><p>通过扩展方法可以向类中添加方法，而不用创建DirveType 或者更改原始类型。<br>例如Unity的transform类，假如现在我们需要一个方法来重置物体位置，这个方法最合适写在Transform类中，但是这个类不允许我们修改，当然把它作为派生类也没有意义，这时就可以用扩展方法来向Transform类中加入这个方法。  </p><h2 id="使用方法："><a href="#使用方法：" class="headerlink" title="使用方法："></a>使用方法：</h2><p><font color =#00ffff>扩展方法需要写成静态的，而仅仅加 static 关键字 ，那么这个类就是静态类了，所以需要使用this关键字。</font>  </p><pre class=" language-cs"><code class="language-cs">public static class  ExtensionTools&#123;    //this 后面跟扩展的类型，这里是Transform类型，如果还有其他参数可以写在后面      //但是第一参数一定是 this + 扩展的类型 + 变量名    public static void ResetTransfoem(this Transform transform)&#123;        transform.position = Vector3.zero;        transform.rotation = Quaternion.identity;        transform.localScale = new Vector3(1,1,1);    &#125;&#125;  </code></pre><p>使用这个方法只需要把它看成类的成员  </p><pre class=" language-cs"><code class="language-cs">public class  TestClass : Monobehaviour&#123;    void Start()&#123;        transform.ResetTransfoem();    &#125;&#125;</code></pre>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;Extension-Methods&quot;&gt;&lt;a href=&quot;#Extension-Methods&quot; class=&quot;headerlink&quot; title=&quot;Extension Methods&quot;&gt;&lt;/a&gt;Extension Methods&lt;/h1&gt;&lt;p&gt;通过扩展方法可以向类</summary>
+      
+    
+    
+    
+    
+    <category term="C#" scheme="http://easyy1108.github.io/tags/C/"/>
+    
+  </entry>
   
   <entry>
     <title>设计模式:观察者模式</title>

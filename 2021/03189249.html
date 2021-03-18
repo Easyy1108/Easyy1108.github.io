@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="设计模式:观察者模式, Wellcom">
+    <meta name="keywords" content="C#中级-方法重载, Wellcom">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>设计模式:观察者模式 | Wellcom</title>
+    <title>C#中级-方法重载 | Wellcom</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -248,12 +248,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">设计模式:观察者模式</h1>
+                    <h1 class="description center-align post-title">C#中级-方法重载</h1>
                 </div>
             </div>
         </div>
@@ -369,8 +369,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
-                                <span class="chip bg-color">设计模式</span>
+                            <a href="/tags/C/">
+                                <span class="chip bg-color">C#</span>
                             </a>
                         
                     </div>
@@ -385,7 +385,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-03-17
+                    2021-03-18
                 </div>
                 
 
@@ -409,133 +409,27 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="观察者模式"><a href="#观察者模式" class="headerlink" title="观察者模式"></a>观察者模式</h1><h2 id="观察者模式介绍："><a href="#观察者模式介绍：" class="headerlink" title="观察者模式介绍："></a><font color = #00ffff>观察者模式介绍：</font></h2><p>观察者模式类似于微信公众号的订阅，当公众号发布消息时，所有订阅当前公众号的人都会收到消息。观察者模式定义了一对多的关系，多个观察者对象监听同一个主题对象，当主题对象发生变化时，通知所有观察者对象，使他们能够自动更新。</p>
-<h2 id="观察者结构："><a href="#观察者结构：" class="headerlink" title="观察者结构："></a><font color =#00ffff>观察者结构：</font></h2><ol>
-<li>抽象主题角色（Subject）:抽象主题把所有观察者对象的引用保存在一个列表中，并提供增加和删除观察者对象的操作，一般有叫作抽象观察者角色，通常由抽象类或者接口实现。  </li>
-<li>抽象观察者角色（Observer）：为所有具体观察者定义一个接口，在得到主题通知时更新自己，一般由抽象类或者接口实现。</li>
-<li>具体主题角色（ConCreteSubject）：实现抽象主题接口，又叫作具体被观察者角色。</li>
-<li>集体观察者角色（ConcreteObserver）：实现抽象观察者角色所要求的接口，使自身状态与主题状态相协调。</li>
-</ol>
-<h2 id="观察者模式的简单实现："><a href="#观察者模式的简单实现：" class="headerlink" title="观察者模式的简单实现："></a><font color =#00ffff>观察者模式的简单实现：</font></h2><p>接下来以订阅号为例，实现简单的观察者模式：  </p>
+                <h1 id="方法重载"><a href="#方法重载" class="headerlink" title="方法重载"></a>方法重载</h1><pre class=" language-cs"><code class="language-cs">public class MathAdd
+&#123;
+    public int Add(int a,int b)&#123;
+        return a+b;
+    &#125;
+
+    public int  Add(int a,int b,int c)&#123;
+        return a+b+c;
+    &#125;
+
+    public string Add(string a, string b)&#123;
+        return a+b;
+    &#125;
+&#125;
+</code></pre>
+<p>如上，我们需要实现一个俩个整数相加的方法，然后现在又需要实现 俩个字符串相加，那么是不是需要再写个string AddString()的方法呢?<br>这里就可以使用  方法重载  方法名相同，参数不同。这时，当我们在使用的时候会出现是三种情况：  </p>
 <ol>
-<li><p><font color = #00ffff>订阅号抽象类：  </font></p>
-<pre class="line-numbers language-cs" data-language="cs"><code class="language-cs">public abstract class DingYueHao&#123;
-    &#x2F;&#x2F;保存订阅者的列表
-    private List&lt;IObserver&gt; observer &#x3D; new  List&lt;Observer&gt;;
-
-    public strig Text&#123;get ; set;&#125;
-    public string Info &#123; get ; set;&#125;
-
-    public DingYueHao(string text , string info)&#123;
-        this.Text&#x3D;text;
-        this.Info &#x3D;info;
-    &#125;
-    &#x2F;&#x2F;加入观察者(订阅的人)
-    public void AddObserver(IObserver ob)&#123;
-        observer.Add(ob);
-    &#125;
-
-    &#x2F;&#x2F;移除观察者
-    public void RemoveObserver(IObserver ob)&#123;
-        observer.Remove(ob);
-    &#125;
-
-    public void Update()&#123;
-        &#x2F;&#x2F;遍历订阅的人，进行通知
-        foreach (IObserver ob in observer)
-        &#123;
-            if (ob!&#x3D;null)
-            &#123;
-                &#x2F;&#x2F;TODO 通知事项
-                ob.ReceiveMessage(this);
-            &#125;
-        &#125;
-    &#125;
-
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p><font color = #00ffff> 具体的订阅号类 </font>  </p>
-<pre class="line-numbers language-cs" data-language="cs"><code class="language-cs">public class EasyyGame:DingYueHao
-&#123;
-        
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p><font color =#00ffff> 订阅者接口</font></p>
-<pre class="line-numbers language-cs" data-language="cs"><code class="language-cs">public interface IObserver
-&#123;
-    void ReceiveMessage(DingYueHao dyh);
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p><font color =#00ffff >具体的订阅者 </font></p>
-<pre class="line-numbers language-cs" data-language="cs"><code class="language-cs">public class Subscriber:IObserver
-&#123;
-    public string Name&#123;get;set;&#125;
-    public Subscriber(string name)&#123;
-        this.Name &#x3D;name;
-    &#125;
-    void ReceiveMessage(DingYueHao dyh)&#123;
-        console.writeline(&quot;notifide&#123;0&#125;of&#123;1&#125;&quot;+&quot;info is&#123;2&#125;&quot;,Name ,dyh.Text,dyh.Info)
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p><font color =#00ffff> 测试类</font></p>
-<pre class="line-numbers language-cs" data-language="cs"><code class="language-cs">class Test
-&#123;
-    static void main(string[] args)&#123;
-        DingYueHao dyh &#x3D;new EasyyGame(&quot;Easyy!&quot;,&quot;new game published!&quot;);
-        dyh.AddObserver(new Subscriber(&quot;Tom&quot;));
-        dyh.Update();
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>输入的参数完全匹配–&gt;运行完全匹配的重载方法 。 </li>
+<li>输入的参数不完全匹配–&gt;系统将查看所有的可能匹配项，并选择一个需要最少转换量的版本。</li>
+<li>如果没有匹配项或者匹配项的多个版本所需转换量相同–&gt; Error!</li>
 </ol>
-<h2 id="具体的游戏案例"><a href="#具体的游戏案例" class="headerlink" title="具体的游戏案例"></a>具体的游戏案例</h2><p>我们需要在游戏结束时，利用GameManager 通知所有敌人：玩家已经死亡，停止移动、播放胜利动画等等。<br>订阅者接口：IEndGameObserver  –&gt; Notify()<br>具体主题角色：GameManager<br>观察者：EnemyController</p>
-<ol>
-<li><p><font color = #00ffff> 具体主题角色 </font>  </p>
-<pre class="line-numbers language-cs" data-language="cs"><code class="language-cs">public GameManager :Mono&#123;
-    public static GameManager instance;
-    List&lt;IEndGameObserver&gt; observer &#x3D;new List&lt;IEndGameObserver&gt;;
-
-    public void AddObserver(IEndGameObserver ob)&#123;
-        observer.Add(ob);
-    &#125;
-
-    public void RemoveObserver(IEndGameObserver ob)&#123;
-        observer.Remove(ob);
-    &#125;
-
-    public void EndNotify()&#123;
-        foreach (var ob in observer)
-        &#123;
-            ob.Notify();
-        &#125;
-    &#125;
-
-    if (玩家死亡)
-    &#123;
-        EndNotify();
-    &#125;
-&#125;  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p><font color =#00ffff>订阅者接口</font>  </p>
-<pre class="line-numbers language-cs" data-language="cs"><code class="language-cs">public interface IEndGameObserver
-&#123;
-    void Notify();
-&#125;  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p><font color =#00ffff>订阅者</font>  </p>
-</li>
-</ol>
-<pre class="line-numbers language-cs" data-language="cs"><code class="language-cs">public class EnemyController : Mono ,IEndGameObserver&#123;
-
-    instance.AddObserver(this)
-    void Notify()&#123;
-        &#x2F;&#x2F;TODO: 玩家死亡之后的一系列动作
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="观察者模式的优缺点"><a href="#观察者模式的优缺点" class="headerlink" title="观察者模式的优缺点"></a>观察者模式的优缺点</h2><p>优点： </p>
-<ul>
-<li> 观察者模式实现了表示层和数据逻辑层的分离，并定义了稳定的更新消息传递机制，并抽象了更新接口，使得可以有各种各样不同的表示层，即观察者。</li>
-<li> 观察者模式在被观察者和观察者之间建立了一个抽象的耦合，被观察者并不知道任何一个具体的观察者，只是保存着抽象观察者的列表，每个具体观察者都符合一个抽象观察者的接口。  </li>
-<li> 观察者模式支持广播通信。被观察者会向所有的注册过的观察者发出通知。<br>缺点：  </li>
-<li>如果一个被观察者有很多直接和间接的观察者时，将所有的观察者都通知到会花费很多时间。</li>
-<li>虽然观察者模式可以随时使观察者知道所观察的对象发送了变化，但是观察者模式没有相应的机制使观察者知道所观察的对象是怎样发生变化的。</li>
-<li>如果在被观察者之间有循环依赖的话，被观察者会触发它们之间进行循环调用，导致系统崩溃，在使用观察者模式应特别注意这点。</li>
-</ul>
 
                 
             </div>
@@ -562,7 +456,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://easyy1108.github.io/2021/031710582.html">http://easyy1108.github.io/2021/031710582.html</a>
+                    <a href="http://easyy1108.github.io/2021/03189249.html">http://easyy1108.github.io/2021/03189249.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -600,8 +494,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
-                                    <span class="chip bg-color">设计模式</span>
+                                <a href="/tags/C/">
+                                    <span class="chip bg-color">C#</span>
                                 </a>
                             
                         </div>
@@ -775,13 +669,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/031852531.html">
+                <a href="/2021/03181926.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="C#中级-Extension Methods">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="C#中级-泛型">
                         
-                        <span class="card-title">C#中级-Extension Methods</span>
+                        <span class="card-title">C#中级-泛型</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -820,13 +714,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/031739727.html">
+                <a href="/2021/031838921.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="设计模式:单例模式">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="C#中级-static">
                         
-                        <span class="card-title">设计模式:单例模式</span>
+                        <span class="card-title">C#中级-static</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -837,7 +731,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-17
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-18
                             </span>
                         <span class="publish-author">
                             
@@ -850,8 +744,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
-                        <span class="chip bg-color">设计模式</span>
+                    <a href="/tags/C/">
+                        <span class="chip bg-color">C#</span>
                     </a>
                     
                 </div>
