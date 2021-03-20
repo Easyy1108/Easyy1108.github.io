@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="C#中级-属性, Easyy">
+    <meta name="keywords" content="C#中级-多态, Easyy">
     <meta name="description" content="Talk is cheap. Show me the code">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>C#中级-属性 | Easyy</title>
+    <title>C#中级-多态 | Easyy</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -248,12 +248,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">C#中级-属性</h1>
+                    <h1 class="description center-align post-title">C#中级-多态</h1>
                 </div>
             </div>
         </div>
@@ -385,7 +385,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-03-18
+                    2021-03-20
                 </div>
                 
 
@@ -409,30 +409,8 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h1><p>我们经常需要在A类中访问B类的成员变量，通常我们会将B类的成员变量设置为public，但是还有更好的方法，那就是使用属性（字段）。  </p>
-<h2 id="创建属性"><a href="#创建属性" class="headerlink" title="创建属性"></a>创建属性</h2><pre class=" language-cs"><code class="language-cs">public class Player &#123;
-    private int experience;
-    //封装属性，一般与字段同名，首字母大写
-    public int Experience
-    &#123;
-        get｛return experience;｝
-        set｛experience =value;｝
-    &#125;
-&#125;  
-</code></pre>
-<pre class=" language-cs"><code class="language-cs">public class Test
-&#123;
-    Player player =new Player();
-    player.Experience=1;
-    int currentEx=player.Experience;
-&#125;
-</code></pre>
-<p>虽然 experience 在player类中是私有的，但是通过set 和get 可以访问这个属性。  </p>
-<p>还可以通过get 和 set 来限制只读、只写、可写可读。  </p>
-<p><font color = #00ffff>另外一种写法：  </font>  </p>
-<pre class=" language-cs"><code class="language-cs">public int Level&#123;get;set;&#125;
-</code></pre>
-<p>在vs中可以通过输入 “prpo” 加回车 快速生存</p>
+                <h1 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h1><p>多态可以把某个派生类型的变量赋值给基本类型的变量。<br>假如现在有Animal类，Animal中有EatFood()方法<br>然后Cow类中也有EatFood()和Moo()方法<br>现在Cow继承自Animal，那么可以不用强制转换就可以通过这个变量来调用基类的方法。：<br>Animal myAnimal = new Cow();<br>myAnimal.EatFood();<br>结果就是调用派生类型中的EatFood()的实现代码。但是，不能以相同的方式来调用派生类型上定义的方法，例如:<br>myAnimal.Moo();<br>则无法运行。<br>但是可以把基本类型的变量转换为派生类型变量，调用派生类的方法，例如:<br>Cow myNewCow =(Cow) myAnimal;<br>myNewCow.Moo();
+ </p>
 
                 
             </div>
@@ -459,7 +437,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://easyy1108.github.io/2021/031817671.html">http://easyy1108.github.io/2021/031817671.html</a>
+                    <a href="http://easyy1108.github.io/2021/032027786.html">http://easyy1108.github.io/2021/032027786.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -672,13 +650,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/031838921.html">
+                <a href="/2021/032025519.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="C#中级-static">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="C#中级-成员隐藏">
                         
-                        <span class="card-title">C#中级-static</span>
+                        <span class="card-title">C#中级-成员隐藏</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -689,7 +667,7 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-18
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-20
                         </span>
                         <span class="publish-author">
                             
@@ -717,13 +695,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/031852531.html">
+                <a href="/2021/031824724.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="C#中级-Extension Methods">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="C#中级-继承">
                         
-                        <span class="card-title">C#中级-Extension Methods</span>
+                        <span class="card-title">C#中级-继承</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -749,6 +727,10 @@
                     
                     <a href="/tags/C/">
                         <span class="chip bg-color">C#</span>
+                    </a>
+                    
+                    <a href="/tags/MonoBehaviour/">
+                        <span class="chip bg-color">MonoBehaviour</span>
                     </a>
                     
                 </div>
