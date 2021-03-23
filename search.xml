@@ -4,6 +4,42 @@
   
     
     <entry>
+      <title>两数之和</title>
+      <link href="2021/032253518.html"/>
+      <url>2021/032253518.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 的那 两个 整数，并返回它们的数组下标。</p><p>你可以假设每种输入只会对应一个答案。但是，数组中同一个元素不能使用两遍。</p><p>你可以按任意顺序返回答案。</p><p> </p><p>示例 1：<br>输入：nums = [2,7,11,15], target = 9<br>输出：[0,1]<br>解释：因为 nums[0] + nums[1] == 9 ，返回 [0, 1] 。  </p><p>示例 2：</p><p>输入：nums = [3,2,4], target = 6<br>输出：[1,2]<br>示例 3：  </p><p>输入：nums = [3,3], target = 6<br>输出：[0,1] </p><p>提示：</p><p>2 &lt;= nums.length &lt;= 103<br>-109 &lt;= nums[i] &lt;= 109<br>-109 &lt;= target &lt;= 109<br>只会存在一个有效答案  </p><h2 id="暴力法实现"><a href="#暴力法实现" class="headerlink" title="暴力法实现"></a>暴力法实现</h2><p>C语言实现：  </p><pre class="line-numbers language-c" data-language="c"><code class="language-c">&#x2F;** * Note: The returned array must be malloced, assume caller calls free(). *&#x2F;int* twoSum(int* nums, int numsSize, int target, int* returnSize)&#123;   for(int i &#x3D;0;i&lt;numsSize-1;i++)&#123;       for(int j &#x3D;1;j&lt;numsSize; j++)&#123;           if(nums[i]+nums[j]&#x3D;&#x3D;target)&#123;               int* ret &#x3D; malloc(sizeof(int)*2);               *returnSize &#x3D; 2;               ret[0]&#x3D;i;               ret[1]&#x3D;j;               return ret;           &#125;       &#125;   &#125;   *returnSize&#x3D;0;    return NULL;&#125;&#96;&#96;&#96;  C#实现：  &#96;&#96;&#96;cs  public class Solution &#123;    public int[] TwoSum(int[] nums, int target) &#123;       for(int i &#x3D;0;i&lt;nums.Length-1;i++)&#123;           for(int j&#x3D;1 ;j&lt;nums.Length;j++)&#123;               if(nums[i]+nums[j]&#x3D;&#x3D;target)                    return new int[]&#123;i,j&#125;;           &#125;          &#125;        return new int[]&#123;&#125;;    &#125;&#125;&#96;&#96;&#96;  ## 哈希表法  C语言实现：  &#96;&#96;&#96;c  struct hashTable &#123;    int key;    int val;    UT_hash_handle hh;&#125;;struct hashTable* hashtable;struct hashTable* find(int ikey) &#123;    struct hashTable* tmp;    HASH_FIND_INT(hashtable, &amp;ikey, tmp);    return tmp;&#125;void insert(int ikey, int ival) &#123;    struct hashTable* it &#x3D; find(ikey);    if (it &#x3D;&#x3D; NULL) &#123;        struct hashTable* tmp &#x3D; malloc(sizeof(struct hashTable));        tmp-&gt;key &#x3D; ikey, tmp-&gt;val &#x3D; ival;        HASH_ADD_INT(hashtable, key, tmp);    &#125; else &#123;        it-&gt;val &#x3D; ival;    &#125;&#125;int* twoSum(int* nums, int numsSize, int target, int* returnSize) &#123;    hashtable &#x3D; NULL;    for (int i &#x3D; 0; i &lt; numsSize; i++) &#123;        struct hashTable* it &#x3D; find(target - nums[i]);        if (it !&#x3D; NULL) &#123;            int* ret &#x3D; malloc(sizeof(int) * 2);            ret[0] &#x3D; it-&gt;val, ret[1] &#x3D; i;            *returnSize &#x3D; 2;            return ret;        &#125;        insert(nums[i], i);    &#125;    *returnSize &#x3D; 0;    return NULL;&#125;&#96;&#96;&#96;  C#实现:  &#96;&#96;&#96;cs    public class Solution &#123;        public int[] TwoSum(int[] nums, int target) &#123;            &#x2F;&#x2F;定义一个int，int 类型的哈希表            Dictionary&lt;int,int&gt; myDic &#x3D;new Dictionary&lt;int,int&gt;();            &#x2F;&#x2F;第一个不用判断，因为表里没值            myDic.Add(nums[0],0);            for(int i&#x3D; 1 ; i&lt;nums.Length;i++)&#123;                &#x2F;&#x2F;判断target-nums[i]是否在哈希表里，在的话就说明找到了                if(myDic.ContainsKey(target-nums[i]))                    return new int[] &#123;myDic[target-nums[i]],i&#125;;                myDic.Add(nums[i],i);            &#125;            return new int[] &#123;&#125;;        &#125;       &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="附C-Hash表的相关信息"><a href="#附C-Hash表的相关信息" class="headerlink" title="附C# Hash表的相关信息"></a>附C# Hash表的相关信息</h2><p>在 C# 中，官方的哈希表实现为 Dictionary<br><a href="https://docs.microsoft.com/zh-cn/dotnet/api/system.collections.hashtable?f1url=https://msdn.microsoft.com/query/dev16.query?appId=Dev16IDEF1&l=ZH-CN&k=k(System.Collections.Hashtable);k(DevLang-csharp)&rd=true&view=netframework-4.8">官方文档</a><br><a href="https://github.com/dotnet/platform-compat/blob/master/docs/DE0006.md">Github</a><br>题目出处及其他解法： <a href="https://leetcode-cn.com/problems/two-sum/">LeetCode</a></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 算法 </tag>
+            
+            <tag> 数据结构 </tag>
+            
+            <tag> 哈希表 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>C#基础-数组</title>
+      <link href="2021/032116312.html"/>
+      <url>2021/032116312.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Unity-第一人称人物控制</title>
       <link href="2021/032032643.html"/>
       <url>2021/032032643.html</url>

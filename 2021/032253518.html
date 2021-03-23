@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="C#中级-成员隐藏, Easyy">
+    <meta name="keywords" content="两数之和, Easyy">
     <meta name="description" content="Talk is cheap. Show me the code">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>C#中级-成员隐藏 | Easyy</title>
+    <title>两数之和 | Easyy</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -248,12 +248,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">C#中级-成员隐藏</h1>
+                    <h1 class="description center-align post-title">两数之和</h1>
                 </div>
             </div>
         </div>
@@ -369,8 +369,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/C/">
-                                <span class="chip bg-color">C#</span>
+                            <a href="/tags/%E7%AE%97%E6%B3%95/">
+                                <span class="chip bg-color">算法</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                                <span class="chip bg-color">数据结构</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/">
+                                <span class="chip bg-color">哈希表</span>
                             </a>
                         
                     </div>
@@ -385,7 +393,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-03-20
+                    2021-03-22
                 </div>
                 
 
@@ -409,27 +417,121 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="成员隐藏"><a href="#成员隐藏" class="headerlink" title="成员隐藏"></a>成员隐藏</h1><p>通过继承，父类的成员在子类中自动可用，或者继承到子类中。<br>在子类中重新创建即重新声明父类成员的过程叫做成员隐藏。<br>隐藏成员同样通过new关键字实现，不过方式略有不同。  </p>
-<pre class=" language-cs"><code class="language-cs">public class Humanoid&#123;
-    public  void Yell()&#123;
-        //叫
+                <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 的那 两个 整数，并返回它们的数组下标。</p>
+<p>你可以假设每种输入只会对应一个答案。但是，数组中同一个元素不能使用两遍。</p>
+<p>你可以按任意顺序返回答案。</p>
+<p> </p>
+<p>示例 1：<br>输入：nums = [2,7,11,15], target = 9<br>输出：[0,1]<br>解释：因为 nums[0] + nums[1] == 9 ，返回 [0, 1] 。  </p>
+<p>示例 2：</p>
+<p>输入：nums = [3,2,4], target = 6<br>输出：[1,2]<br>示例 3：  </p>
+<p>输入：nums = [3,3], target = 6<br>输出：[0,1]
+ </p>
+<p>提示：</p>
+<p>2 &lt;= nums.length &lt;= 103<br>-109 &lt;= nums[i] &lt;= 109<br>-109 &lt;= target &lt;= 109<br>只会存在一个有效答案  </p>
+<h2 id="暴力法实现"><a href="#暴力法实现" class="headerlink" title="暴力法实现"></a>暴力法实现</h2><p>C语言实现：  </p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">&#x2F;**
+ * Note: The returned array must be malloced, assume caller calls free().
+ *&#x2F;
+int* twoSum(int* nums, int numsSize, int target, int* returnSize)&#123;
+   for(int i &#x3D;0;i&lt;numsSize-1;i++)&#123;
+       for(int j &#x3D;1;j&lt;numsSize; j++)&#123;
+           if(nums[i]+nums[j]&#x3D;&#x3D;target)&#123;
+               int* ret &#x3D; malloc(sizeof(int)*2);
+               *returnSize &#x3D; 2;
+               ret[0]&#x3D;i;
+               ret[1]&#x3D;j;
+               return ret;
+           &#125;
+       &#125;
+   &#125;
+   *returnSize&#x3D;0;
+    return NULL;
+
+&#125;
+&#96;&#96;&#96;  
+
+C#实现：  
+&#96;&#96;&#96;cs  
+public class Solution &#123;
+    public int[] TwoSum(int[] nums, int target) &#123;
+       for(int i &#x3D;0;i&lt;nums.Length-1;i++)&#123;
+           for(int j&#x3D;1 ;j&lt;nums.Length;j++)&#123;
+               if(nums[i]+nums[j]&#x3D;&#x3D;target)
+                    return new int[]&#123;i,j&#125;;
+           &#125;  
+        &#125;
+        return new int[]&#123;&#125;;
+    &#125;
+&#125;
+&#96;&#96;&#96;  
+
+
+## 哈希表法  
+
+C语言实现：  
+&#96;&#96;&#96;c  
+struct hashTable &#123;
+    int key;
+    int val;
+    UT_hash_handle hh;
+&#125;;
+
+struct hashTable* hashtable;
+
+struct hashTable* find(int ikey) &#123;
+    struct hashTable* tmp;
+    HASH_FIND_INT(hashtable, &amp;ikey, tmp);
+    return tmp;
+&#125;
+
+void insert(int ikey, int ival) &#123;
+    struct hashTable* it &#x3D; find(ikey);
+    if (it &#x3D;&#x3D; NULL) &#123;
+        struct hashTable* tmp &#x3D; malloc(sizeof(struct hashTable));
+        tmp-&gt;key &#x3D; ikey, tmp-&gt;val &#x3D; ival;
+        HASH_ADD_INT(hashtable, key, tmp);
+    &#125; else &#123;
+        it-&gt;val &#x3D; ival;
     &#125;
 &#125;
 
-public class Enemy : Humanoid
-&#123;
-    public new void Yell()&#123;
-        //跑
+int* twoSum(int* nums, int numsSize, int target, int* returnSize) &#123;
+    hashtable &#x3D; NULL;
+    for (int i &#x3D; 0; i &lt; numsSize; i++) &#123;
+        struct hashTable* it &#x3D; find(target - nums[i]);
+        if (it !&#x3D; NULL) &#123;
+            int* ret &#x3D; malloc(sizeof(int) * 2);
+            ret[0] &#x3D; it-&gt;val, ret[1] &#x3D; i;
+            *returnSize &#x3D; 2;
+            return ret;
+        &#125;
+        insert(nums[i], i);
     &#125;
-&#125;  
-
-public class Silme : Enemy
-&#123;
-    public new void Yell()&#123;
-        //攻击
-    &#125;
+    *returnSize &#x3D; 0;
+    return NULL;
 &#125;
-</code></pre>
+&#96;&#96;&#96;  
+
+
+C#实现:  
+&#96;&#96;&#96;cs
+    public class Solution &#123;
+        public int[] TwoSum(int[] nums, int target) &#123;
+            &#x2F;&#x2F;定义一个int，int 类型的哈希表
+            Dictionary&lt;int,int&gt; myDic &#x3D;new Dictionary&lt;int,int&gt;();
+            &#x2F;&#x2F;第一个不用判断，因为表里没值
+            myDic.Add(nums[0],0);
+            for(int i&#x3D; 1 ; i&lt;nums.Length;i++)&#123;
+                &#x2F;&#x2F;判断target-nums[i]是否在哈希表里，在的话就说明找到了
+                if(myDic.ContainsKey(target-nums[i]))
+                    return new int[] &#123;myDic[target-nums[i]],i&#125;;
+                myDic.Add(nums[i],i);
+            &#125;
+            return new int[] &#123;&#125;;
+        &#125;   
+    &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="附C-Hash表的相关信息"><a href="#附C-Hash表的相关信息" class="headerlink" title="附C# Hash表的相关信息"></a>附C# Hash表的相关信息</h2><p>在 C# 中，官方的哈希表实现为 Dictionary<br><a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/dotnet/api/system.collections.hashtable?f1url=https://msdn.microsoft.com/query/dev16.query?appId=Dev16IDEF1&l=ZH-CN&k=k(System.Collections.Hashtable);k(DevLang-csharp)&rd=true&view=netframework-4.8">官方文档</a><br><a target="_blank" rel="noopener" href="https://github.com/dotnet/platform-compat/blob/master/docs/DE0006.md">Github</a><br>题目出处及其他解法： <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/two-sum/">LeetCode</a></p>
 
                 
             </div>
@@ -456,7 +558,7 @@ public class Silme : Enemy
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://easyy1108.github.io/2021/032025519.html">http://easyy1108.github.io/2021/032025519.html</a>
+                    <a href="http://easyy1108.github.io/2021/032253518.html">http://easyy1108.github.io/2021/032253518.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -494,8 +596,16 @@ public class Silme : Enemy
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/C/">
-                                    <span class="chip bg-color">C#</span>
+                                <a href="/tags/%E7%AE%97%E6%B3%95/">
+                                    <span class="chip bg-color">算法</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                                    <span class="chip bg-color">数据结构</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/">
+                                    <span class="chip bg-color">哈希表</span>
                                 </a>
                             
                         </div>
@@ -665,17 +775,18 @@ public class Silme : Enemy
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/032031161.html">
+                <a href="/2021/032253518.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="C#中级-重写">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="两数之和">
                         
-                        <span class="card-title">C#中级-重写</span>
+                        <span class="card-title">两数之和</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -685,9 +796,9 @@ public class Silme : Enemy
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-20
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-22
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -696,11 +807,20 @@ public class Silme : Enemy
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/C/">
-                        <span class="chip bg-color">C#</span>
+                    <a href="/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">算法</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                        <span class="chip bg-color">数据结构</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/">
+                        <span class="chip bg-color">哈希表</span>
                     </a>
                     
                 </div>
@@ -714,13 +834,13 @@ public class Silme : Enemy
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/032027786.html">
+                <a href="/2021/032116312.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="C#中级-多态">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="C#基础-数组">
                         
-                        <span class="card-title">C#中级-多态</span>
+                        <span class="card-title">C#基础-数组</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -731,7 +851,7 @@ public class Silme : Enemy
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-20
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-21
                             </span>
                         <span class="publish-author">
                             
@@ -740,14 +860,6 @@ public class Silme : Enemy
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/C/">
-                        <span class="chip bg-color">C#</span>
-                    </a>
-                    
                 </div>
                 
             </div>
