@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Unity-第一人称人物控制, Easyy">
+    <meta name="keywords" content="C#-数组, Easyy">
     <meta name="description" content="Talk is cheap. Show me the code">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Unity-第一人称人物控制 | Easyy</title>
+    <title>C#-数组 | Easyy</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -248,12 +248,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Unity-第一人称人物控制</h1>
+                    <h1 class="description center-align post-title">C#-数组</h1>
                 </div>
             </div>
         </div>
@@ -367,17 +367,9 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/Unity/">
-                                <span class="chip bg-color">Unity</span>
-                            </a>
-                        
-                            <a href="/tags/%E4%BA%BA%E7%89%A9%E6%8E%A7%E5%88%B6/">
-                                <span class="chip bg-color">人物控制</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -389,7 +381,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-03-20
+                    2021-03-23
                 </div>
                 
 
@@ -413,79 +405,32 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="第一人称的移动、跳跃控制"><a href="#第一人称的移动、跳跃控制" class="headerlink" title="第一人称的移动、跳跃控制"></a>第一人称的移动、跳跃控制</h1><ol>
-<li><p>新建一个Capsule<br><img src="https://i.loli.net/2021/03/20/s5tkxMpFfwNWnGh.png"></p>
-</li>
-<li><p>为其添加CharacterContronller 组件<br><img src="https://i.loli.net/2021/03/20/eOAbyvwS67FRfI1.png"></p>
-</li>
-<li><p>将相机移动为Capsule子物体并移动到上方<br><img src="https://i.loli.net/2021/03/20/vfX5h6b8Y7QeKAm.png"></p>
-</li>
-<li><p>位相机添加MouseContronller 脚本</p>
-<pre class=" language-cs"><code class="language-cs">public class MouseController : MonoBehaviour
-&#123;
- public Transform player ;
- public float mouseSpeed =100f;
-
- float xRotation;
- void Update()&#123;
-     float mouseX =Input.GetAxis("Mouse X") * mouseSpeed * Time.deltaTime;
-     float mouseY =Input.GetAxis("Mouse Y") * mouseSpeed * Time.deltaTime ;
-
-     xRotation -= mouseY;
-
-     xRotation =Mathf.Clamp(xRotation,-90f,90f);
-
-     tranform.LocalRotation = Quaternion.Euler(xRotation,0,0);
-
-     player.Rotate(Vector3.up*mouseX);
-
- &#125;
-&#125;
+                <h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><ol>
+<li><font color =#00ffff>声明数组：</font><br>采用以下方式声明数组  <pre class="line-numbers language-cs" data-language="cs"><code class="language-cs">&lt;TypeNmae&gt;[] name;  
+&#x2F;&#x2F;例如
+int[] array;
+array[10]&#x3D;5;
+&#x2F;&#x2F;1
+int[] array&#x3D;&#123;1,2,3,4,5&#125;;
+&#x2F;&#x2F;2
+int[] array&#x3D;new int[5];
+&#x2F;&#x2F;3
+int[] array&#x3D;new int[5]&#123;1,2,3,4,5&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h1 id="多维数组"><a href="#多维数组" class="headerlink" title="多维数组"></a>多维数组</h1><ol>
+<li><font color =#00ffff>数组声明：</font>  <pre class=" language-cs"><code class="language-cs">//二维
+<baseType>[,] <name>;
+//多维只需要加，
+<baseType>[,,,,] <name>;
+//例如
+int[,] array =new int[3,4];
+//
+int[,] array=&#123;&#123;1,2,3,4&#125;,&#123;5,6,7,8&#125;,&#123;9,10,11,12&#125;&#125;;
+//使用
+array[1,2];
 </code></pre>
-<p><img src="https://i.loli.net/2021/03/20/Gi8OlkIATPYsUnH.png" alt="控制上下左右旋转代码">  </p>
-</li>
-<li><p>为人物添加PlayerController 代码  </p>
-<pre class=" language-cs"><code class="language-cs">public class PlayerController : MonoBehaviour
-&#123;
- public CharacterController controller;
- public Transform checkPoint;
- public LayerMask ground;
- private float radius;
- private float speed = 3.0f;
- private float gravity =-9.81f;
- private float jumpHeight = 3.0f;
- private Vector3 velocity;
-
- bool isGround;
- void Update()&#123;
-     isGround = Physics.CheckSphere(checkPoint , radius ,ground);
-     if (isGround && velocity.y<=0>)
-     &#123;
-         velocity.y=-1f;
-     &#125;
-
-     float x = Input.GetAxis("Horizontal");
-     float z = Input.GetAxis("Vetical");
-
-     Vector3 move = tranform.rigth*x + tranform.forward * z;
-
-     if (isGround && Input.GetButtonDwon("Jump"))
-     &#123;
-         velocity.y = Mathf.Sqrt(jumpHeight*-3.0f * gravity);
-     &#125;
-
-     controller.Move(move* speed * Time.deltaTime);
-
-     velocity.y += gravity*Time.deltaTime;
-     controller.Move(velocity*Time.deltaTime);
-     &#125;
- &#125;
-&#125;
-</code></pre>
-<p><img src="https://i.loli.net/2021/03/20/g2oNOcEVZLj5X6J.png" alt="人物移动及掉落代码">    </p>
 </li>
 </ol>
-<p>CharacterController.Move() 参考：<a target="_blank" rel="noopener" href="https://docs.unity3d.com/cn/2019.4/ScriptReference/CharacterController.Move.html">Unity官方手册</a></p>
 
                 
             </div>
@@ -512,7 +457,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://easyy1108.github.io/2021/032032643.html">http://easyy1108.github.io/2021/032032643.html</a>
+                    <a href="http://easyy1108.github.io/2021/032317252.html">http://easyy1108.github.io/2021/032317252.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -549,15 +494,7 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/Unity/">
-                                    <span class="chip bg-color">Unity</span>
-                                </a>
-                            
-                                <a href="/tags/%E4%BA%BA%E7%89%A9%E6%8E%A7%E5%88%B6/">
-                                    <span class="chip bg-color">人物控制</span>
-                                </a>
-                            
+                            <span class="chip bg-color">无标签</span>
                         </div>
                     
                 </div>
@@ -729,13 +666,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/032253518.html">
+                <a href="/2021/032338653.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="两数之和">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="C#-字符串">
                         
-                        <span class="card-title">两数之和</span>
+                        <span class="card-title">C#-字符串</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -746,7 +683,7 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-22
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-23
                         </span>
                         <span class="publish-author">
                             
@@ -755,22 +692,6 @@
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">算法</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
-                        <span class="chip bg-color">数据结构</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/">
-                        <span class="chip bg-color">哈希表</span>
-                    </a>
-                    
                 </div>
                 
             </div>
@@ -782,13 +703,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/032025834.html">
+                <a href="/2021/032341153.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="C#中级-接口">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="2D项目总结（持续更新中）">
                         
-                        <span class="card-title">C#中级-接口</span>
+                        <span class="card-title">2D项目总结（持续更新中）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -799,7 +720,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-20
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-23
                             </span>
                         <span class="publish-author">
                             
@@ -812,8 +733,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/C/">
-                        <span class="chip bg-color">C#</span>
+                    <a href="/tags/Demo/">
+                        <span class="chip bg-color">Demo</span>
+                    </a>
+                    
+                    <a href="/tags/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/">
+                        <span class="chip bg-color">项目总结</span>
                     </a>
                     
                 </div>

@@ -6,7 +6,7 @@
   <link href="http://easyy1108.github.io/atom.xml" rel="self"/>
   
   <link href="http://easyy1108.github.io/"/>
-  <updated>2021-03-23T02:18:13.087Z</updated>
+  <updated>2021-03-23T13:40:14.352Z</updated>
   <id>http://easyy1108.github.io/</id>
   
   <author>
@@ -15,6 +15,85 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>C#-集合</title>
+    <link href="http://easyy1108.github.io/2021/032349341.html"/>
+    <id>http://easyy1108.github.io/2021/032349341.html</id>
+    <published>2021-03-23T13:40:14.000Z</published>
+    <updated>2021-03-23T13:40:14.352Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>C#-字符串</title>
+    <link href="http://easyy1108.github.io/2021/032338653.html"/>
+    <id>http://easyy1108.github.io/2021/032338653.html</id>
+    <published>2021-03-23T13:10:40.000Z</published>
+    <updated>2021-03-23T13:37:09.940Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="常用字符串操作"><a href="#常用字符串操作" class="headerlink" title="常用字符串操作"></a>常用字符串操作</h1><ol><li><p><font color =#00ffff>变量.Length：取字符串长度:</font><br>如:  </p><pre class="line-numbers language-cs" data-language="cs"><code class="language-cs">String  str&#x3D;”hello”;  Int len&#x3D;str.Length;&#x2F;&#x2F;Len是自定义变量，str是字符串的变量名  Console.WriteLine(&quot;&#123;0&#125;&quot;,len);   &#96;&#96;&#96;  输出结果：5  2. &lt;font color &#x3D;#00ffff&gt;变量.Substring(参数1,参数2):&lt;&#x2F;font&gt;  截取字串的一部分，参数1为左起始位数，参数2为截取几位。  如:  &#96;&#96;&#96;cs  string  str&#x3D;”hello”;  Console.WriteLine(&quot;&#123;0&#125;&quot;,str.Substring(1,2));&#96;&#96;&#96;  输出结果：el  3. &lt;font color &#x3D;#00ffff&gt;char.IsWh iteSpace(字符串变量，位数)&lt;&#x2F;font&gt;  查指定位置是否空字符  &#96;&#96;&#96;cs  string str&#x3D;&quot;he llo&quot;; Console.WriteLine (char.IsWhiteSpace(str,2)); &#96;&#96;&#96;  输出结果：True  4. &lt;font color &#x3D;#00ffff&gt;char.IsPunctuation(&#39;字符&#39;)&lt;&#x2F;font&gt;  查字符是否是标点符号  &#96;&#96;&#96;cs  Console.WriteLine (char.IsPunctuation(&#39;a&#39;)); Console.WriteLine (char.IsPunctuation(&#39;!&#39;));<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>输出结果：False  True  </p></li><li><p><font color =#00ffff>Trim() :</font><br>清除字串前后空格  </p><pre class="line-numbers language-cs" data-language="cs"><code class="language-cs">string str&#x3D;”  hello  ”;Console.WriteLine(“&#123;0&#125;”,str.Trim());&#96;&#96;&#96;  输出结果：hello  6. &lt;font color &#x3D;#00ffff&gt;变量.Replace(“要替换的”,”替换为”)&lt;&#x2F;font&gt;  字符串替换  &#96;&#96;&#96;cs  string str&#x3D;”helle”;Console.WriteLine(“&#123;0&#125;”,str.Replace(“e”,”o”));&#96;&#96;&#96;  输出结果：hello  7. &lt;font color &#x3D;#00ffff&gt;Split()&lt;&#x2F;font&gt;  将字符串拆分为子字符串(如将句子拆分为各个单词)  Split() 方法使用分隔符（如空格字符）  &#96;&#96;&#96;cs  char[] delimit &#x3D; new char[] &#123; &#39; &#39; &#125;;string s14 &#x3D; &quot;The cat sat on the mat.&quot;;foreach (string substr in s14.Split(delimit))&#123;    Console.WriteLine(substr);&#125;&#96;&#96;&#96;  输出结果：Thecatsatonthemat.  8. &lt;font color &#x3D;#00ffff&gt;ToUpper() 和 ToLower()：&lt;&#x2F;font&gt;  更改大小写字母  &#96;&#96;&#96;cs  string str&#x3D;”hello”;Console.WriteLine(str.ToUpper());&#96;&#96;&#96;  输出结果：HELLO  9. &lt;font color &#x3D;#00ffff&gt;IndexOf() 、LastIndexOf() &lt;&#x2F;font&gt;  查找字串中指定字符或字串首次（最后一次）出现的位置,返回索引值.  &#96;&#96;&#96;cs   string str&#x3D;”hello”;str.IndexOf(&quot;e&quot;)； &#x2F;&#x2F;查找“e”在str中的索引值（位置） &#x2F;&#x2F;结果为：1str.IndexOf(&quot;ll&quot;)；&#x2F;&#x2F;查找“el”的第一个字符在str中的索引值（位置） &#x2F;&#x2F;结果为：2str.IndexOf(&quot;字串&quot;,3,2)；&#x2F;&#x2F;从str1第4个字符起，查找2个字符，查找“字串”的第一个字符在str1中的索引值（位置）tring str&#x3D;”hellogood”;str.IndexOf(“og”,3,2);&#x2F;&#x2F;输出结果：-1&#96;&#96;&#96;  10. &lt;font color &#x3D;#00ffff&gt;str1.EndsWith(str2)&lt;&#x2F;font&gt;   检测字串str1是否以字串str2结尾,返回布尔值.  &#96;&#96;&#96;cs  string str1 &#x3D; &quot;hi,hello&quot;;string str2 &#x3D; &quot;hello&quot;;Console.WriteLine(&quot;.EndsWith的用法”+ str1.EndsWith(str2));&#x2F;&#x2F;输出结果：True  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li><li><p> <font color =#00ffff>str1.Equals(str2)</font><br>检测字串str1是否与字串str2相等,返回布尔值  </p></li><li><p><font color =#00ffff>Insert()</font><br>在字串中指定索引位插入指定字符。  </p></li><li><p><font color =#00ffff>Remove():</font><br>从指定位置删除指定位数的字符</p></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;常用字符串操作&quot;&gt;&lt;a href=&quot;#常用字符串操作&quot; class=&quot;headerlink&quot; title=&quot;常用字符串操作&quot;&gt;&lt;/a&gt;常用字符串操作&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;font color =#00ffff&gt;变量.Length：取字符串长度:&lt;/f</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>C#-数组</title>
+    <link href="http://easyy1108.github.io/2021/032317252.html"/>
+    <id>http://easyy1108.github.io/2021/032317252.html</id>
+    <published>2021-03-23T12:52:24.000Z</published>
+    <updated>2021-03-23T13:38:40.547Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><ol><li><font color =#00ffff>声明数组：</font><br>采用以下方式声明数组  <pre class="line-numbers language-cs" data-language="cs"><code class="language-cs">&lt;TypeNmae&gt;[] name;  &#x2F;&#x2F;例如int[] array;array[10]&#x3D;5;&#x2F;&#x2F;1int[] array&#x3D;&#123;1,2,3,4,5&#125;;&#x2F;&#x2F;2int[] array&#x3D;new int[5];&#x2F;&#x2F;3int[] array&#x3D;new int[5]&#123;1,2,3,4,5&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li></ol><h1 id="多维数组"><a href="#多维数组" class="headerlink" title="多维数组"></a>多维数组</h1><ol><li><font color =#00ffff>数组声明：</font>  <pre class=" language-cs"><code class="language-cs">//二维<baseType>[,] <name>;//多维只需要加，<baseType>[,,,,] <name>;//例如int[,] array =new int[3,4];//int[,] array=&#123;&#123;1,2,3,4&#125;,&#123;5,6,7,8&#125;,&#123;9,10,11,12&#125;&#125;;//使用array[1,2];</code></pre></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;数组&quot;&gt;&lt;a href=&quot;#数组&quot; class=&quot;headerlink&quot; title=&quot;数组&quot;&gt;&lt;/a&gt;数组&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;&lt;font color =#00ffff&gt;声明数组：&lt;/font&gt;&lt;br&gt;采用以下方式声明数组  &lt;pre class=&quot;lin</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>2D项目总结（持续更新中）</title>
+    <link href="http://easyy1108.github.io/2021/032341153.html"/>
+    <id>http://easyy1108.github.io/2021/032341153.html</id>
+    <published>2021-03-23T12:31:22.000Z</published>
+    <updated>2021-03-23T13:27:35.391Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="BommGuy-项目总结"><a href="#BommGuy-项目总结" class="headerlink" title="BommGuy 项目总结"></a>BommGuy 项目总结</h1><p>前言；转眼之间就要到了毕业找工作的时候，在此，把大学期间做过的一些小Demo重新看一看，总结一下。  </p><h2 id="游戏介绍"><a href="#游戏介绍" class="headerlink" title="游戏介绍"></a>游戏介绍</h2><p>这个Demo 是Unity官方推送的Michael老师的2d教程，正好当时打算玩玩Unity的2D方向，就参考着进行制作。<br>游戏素材源自“pixelfrog”：<br><img src="https://i.loli.net/2021/03/23/jKUru5AbdxyzZwa.png" alt="游戏素材"><br>为了征求许可，还特地去Twitter上找到他，进行了询问。<br>游戏共有6个角色，每个角色都配备了攻击、跑、死亡、初始等序列帧动画。<br><img src="https://i.loli.net/2021/03/23/2boCPshMLvn9Hfy.png" alt="游戏素材导入Unity">  </p><h2 id="素材处理"><a href="#素材处理" class="headerlink" title="素材处理"></a>素材处理</h2><p>由于这些素材的分辨率不统一，所以得先进行处理。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;BommGuy-项目总结&quot;&gt;&lt;a href=&quot;#BommGuy-项目总结&quot; class=&quot;headerlink&quot; title=&quot;BommGuy 项目总结&quot;&gt;&lt;/a&gt;BommGuy 项目总结&lt;/h1&gt;&lt;p&gt;前言；转眼之间就要到了毕业找工作的时候，在此，把大学期间做过</summary>
+      
+    
+    
+    
+    
+    <category term="Demo" scheme="http://easyy1108.github.io/tags/Demo/"/>
+    
+    <category term="项目总结" scheme="http://easyy1108.github.io/tags/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/"/>
+    
+  </entry>
   
   <entry>
     <title>两数之和</title>
@@ -39,19 +118,6 @@
     <category term="数据结构" scheme="http://easyy1108.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
     <category term="哈希表" scheme="http://easyy1108.github.io/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>C#基础-数组</title>
-    <link href="http://easyy1108.github.io/2021/032116312.html"/>
-    <id>http://easyy1108.github.io/2021/032116312.html</id>
-    <published>2021-03-21T11:52:30.000Z</published>
-    <updated>2021-03-22T13:55:42.305Z</updated>
-    
-    
-    
-    
     
   </entry>
   
