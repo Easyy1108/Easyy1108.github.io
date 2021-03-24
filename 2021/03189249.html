@@ -401,28 +401,25 @@
         <hr class="clearfix">
 
         
-        <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="/libs/prism/prism.css">
-        
 
         
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="方法重载"><a href="#方法重载" class="headerlink" title="方法重载"></a>方法重载</h1><pre class=" language-cs"><code class="language-cs">public class MathAdd
-&#123;
-    public int Add(int a,int b)&#123;
-        return a+b;
-    &#125;
+                <h1 id="方法重载"><a href="#方法重载" class="headerlink" title="方法重载"></a>方法重载</h1><pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MathAdd</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">Add</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span><span class="token keyword">int</span> b<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> a<span class="token operator">+</span>b<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    public int  Add(int a,int b,int c)&#123;
-        return a+b+c;
-    &#125;
+    <span class="token keyword">public</span> <span class="token keyword">int</span>  <span class="token function">Add</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span><span class="token keyword">int</span> b<span class="token punctuation">,</span><span class="token keyword">int</span> c<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> a<span class="token operator">+</span>b<span class="token operator">+</span>c<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    public string Add(string a, string b)&#123;
-        return a+b;
-    &#125;
-&#125;
+    <span class="token keyword">public</span> <span class="token keyword">string</span> <span class="token function">Add</span><span class="token punctuation">(</span><span class="token keyword">string</span> a<span class="token punctuation">,</span> <span class="token keyword">string</span> b<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> a<span class="token operator">+</span>b<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <p>如上，我们需要实现一个俩个整数相加的方法，然后现在又需要实现 俩个字符串相加，那么是不是需要再写个string AddString()的方法呢?<br>这里就可以使用  方法重载  方法名相同，参数不同。这时，当我们在使用的时候会出现是三种情况：  </p>
 <ol>
@@ -776,6 +773,14 @@
 <!-- 代码块收缩 -->
 
 <script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
 
 
     </div>

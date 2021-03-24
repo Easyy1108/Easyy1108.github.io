@@ -537,9 +537,9 @@
                             
                                 常用字符串操作
 变量.Length：取字符串长度:如:  
-String  str&#x3D;”hello”;  
-Int len&#x3D;str.Length;&#x2F;&#x2F;Len是自定义变量，str是字符串的变量名  
-Co
+String  str=”hello”;  
+Int len=str.Length;//Len是自定义变量，str是字符串的变量名  
+Console.WriteLine("{0}
                             
                         </div>
                         <div class="publish-info">
@@ -575,12 +575,14 @@ Co
                         <div class="summary block-with-text">
                             
                                 数组
-声明数组：采用以下方式声明数组  &lt;TypeNmae&gt;[] name;  
-&#x2F;&#x2F;例如
+声明数组：采用以下方式声明数组  &lt;TypeNmae>[] name;  
+//例如
 int[] array;
-array[10]&#x3D;5;
-&#x2F;&#x2F;1
-int[] array&#
+array[10]=5;
+//1
+int[] array={1,2,3,4,5};
+//2
+int[] array=
                             
                         </div>
                         <div class="publish-info">
@@ -815,13 +817,15 @@ public
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                Overridingpublic class Humanoid&#123;
-   public virtual void Yell()&#123;
+                                Overridingpublic class Humanoid{
+   public virtual void Yell(){
         //叫
-    &#125;
-&#125;
+    }
+}
 
-public class En
+public class Enemy : Humanoid
+{
+   
                             
                         </div>
                         <div class="publish-info">
@@ -865,8 +869,8 @@ public class En
                         <div class="summary block-with-text">
                             
                                 成员隐藏通过继承，父类的成员在子类中自动可用，或者继承到子类中。在子类中重新创建即重新声明父类成员的过程叫做成员隐藏。隐藏成员同样通过new关键字实现，不过方式略有不同。  
-public class Humanoid&#123;
-    
+public class Humanoid{
+    publi
                             
                         </div>
                         <div class="publish-info">

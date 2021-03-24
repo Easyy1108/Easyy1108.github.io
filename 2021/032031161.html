@@ -401,35 +401,32 @@
         <hr class="clearfix">
 
         
-        <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="/libs/prism/prism.css">
-        
 
         
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Overriding"><a href="#Overriding" class="headerlink" title="Overriding"></a>Overriding</h1><pre class=" language-cs"><code class="language-cs">public class Humanoid&#123;
-   public virtual void Yell()&#123;
-        //叫
-    &#125;
-&#125;
+                <h1 id="Overriding"><a href="#Overriding" class="headerlink" title="Overriding"></a>Overriding</h1><pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Humanoid</span><span class="token punctuation">{</span>
+   <span class="token keyword">public</span> <span class="token keyword">virtual</span> <span class="token keyword">void</span> <span class="token function">Yell</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//叫</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
-public class Enemy : Humanoid
-&#123;
-    public override void Yell()&#123;
-        base.Yell;//叫
-        //跑
-    &#125;
-&#125;  
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Enemy</span> <span class="token punctuation">:</span> Humanoid
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">override</span> <span class="token keyword">void</span> <span class="token function">Yell</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">base</span><span class="token punctuation">.</span>Yell<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//叫</span>
+        <span class="token comment" spellcheck="true">//跑</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>  
 
-public class Silme : Enemy
-&#123;
-    public override void Yell()&#123;
-        base.Yell();//叫 跑
-        //攻击
-    &#125;
-&#125;
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Silme</span> <span class="token punctuation">:</span> Enemy
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">override</span> <span class="token keyword">void</span> <span class="token function">Yell</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">base</span><span class="token punctuation">.</span><span class="token function">Yell</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//叫 跑</span>
+        <span class="token comment" spellcheck="true">//攻击</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 
                 
@@ -777,6 +774,14 @@ public class Silme : Enemy
 <!-- 代码块收缩 -->
 
 <script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
 
 
     </div>

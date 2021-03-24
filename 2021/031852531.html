@@ -401,9 +401,6 @@
         <hr class="clearfix">
 
         
-        <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="/libs/prism/prism.css">
-        
 
         
 
@@ -411,24 +408,24 @@
             <div id="articleContent">
                 <h1 id="Extension-Methods"><a href="#Extension-Methods" class="headerlink" title="Extension Methods"></a>Extension Methods</h1><p>通过扩展方法可以向类中添加方法，而不用创建DirveType 或者更改原始类型。<br>例如Unity的transform类，假如现在我们需要一个方法来重置物体位置，这个方法最合适写在Transform类中，但是这个类不允许我们修改，当然把它作为派生类也没有意义，这时就可以用扩展方法来向Transform类中加入这个方法。  </p>
 <h2 id="使用方法："><a href="#使用方法：" class="headerlink" title="使用方法："></a>使用方法：</h2><p><font color =#00ffff>扩展方法需要写成静态的，而仅仅加 static 关键字 ，那么这个类就是静态类了，所以需要使用this关键字。</font>  </p>
-<pre class=" language-cs"><code class="language-cs">public static class  ExtensionTools
-&#123;
-    //this 后面跟扩展的类型，这里是Transform类型，如果还有其他参数可以写在后面  
-    //但是第一参数一定是 this + 扩展的类型 + 变量名
-    public static void ResetTransfoem(this Transform transform)&#123;
-        transform.position = Vector3.zero;
-        transform.rotation = Quaternion.identity;
-        transform.localScale = new Vector3(1,1,1);
-    &#125;
-&#125;  
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">class</span>  <span class="token class-name">ExtensionTools</span>
+<span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//this 后面跟扩展的类型，这里是Transform类型，如果还有其他参数可以写在后面  </span>
+    <span class="token comment" spellcheck="true">//但是第一参数一定是 this + 扩展的类型 + 变量名</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">ResetTransfoem</span><span class="token punctuation">(</span><span class="token keyword">this</span> Transform transform<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        transform<span class="token punctuation">.</span>position <span class="token operator">=</span> Vector3<span class="token punctuation">.</span>zero<span class="token punctuation">;</span>
+        transform<span class="token punctuation">.</span>rotation <span class="token operator">=</span> Quaternion<span class="token punctuation">.</span>identity<span class="token punctuation">;</span>
+        transform<span class="token punctuation">.</span>localScale <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vector3</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>  
 </code></pre>
 <p>使用这个方法只需要把它看成类的成员  </p>
-<pre class=" language-cs"><code class="language-cs">public class  TestClass : Monobehaviour
-&#123;
-    void Start()&#123;
-        transform.ResetTransfoem();
-    &#125;
-&#125;
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">public</span> <span class="token keyword">class</span>  <span class="token class-name">TestClass</span> <span class="token punctuation">:</span> Monobehaviour
+<span class="token punctuation">{</span>
+    <span class="token keyword">void</span> <span class="token function">Start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        transform<span class="token punctuation">.</span><span class="token function">ResetTransfoem</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 
                 
@@ -776,6 +773,14 @@
 <!-- 代码块收缩 -->
 
 <script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
 
 
     </div>

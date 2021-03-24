@@ -401,67 +401,64 @@
         <hr class="clearfix">
 
         
-        <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="/libs/prism/prism.css">
-        
 
         
 
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h1><p>泛型是一个特征，通过该特征，类型可以作为参数传递给类或者方法。像Unity中的GetComponent就是泛型方法。  </p>
-<h2 id="如何创建泛型"><a href="#如何创建泛型" class="headerlink" title="如何创建泛型"></a>如何创建泛型</h2><pre class=" language-cs"><code class="language-cs">public class SomeClass
-&#123;
-    public T GenericMethod<T> (T param)&#123;
-        return param;
-    &#125;
-&#125;
+<h2 id="如何创建泛型"><a href="#如何创建泛型" class="headerlink" title="如何创建泛型"></a>如何创建泛型</h2><pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SomeClass</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> T <span class="token generic-method function">GenericMethod<span class="token punctuation">&lt;</span>T<span class="token punctuation">></span> </span><span class="token punctuation">(</span>T param<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> param<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <p>无论T是什么类型，传入什么类型，T就对应成这个类型。  </p>
 <h2 id="限制泛型"><a href="#限制泛型" class="headerlink" title="限制泛型"></a>限制泛型</h2><ol>
-<li>T是引用类型<pre class=" language-cs"><code class="language-cs">public class SomeClass
-&#123;
- public T GenericMethod<T> (T param) where T ：class
- &#123;
-     return param;
- &#125;
-&#125;
+<li>T是引用类型<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SomeClass</span>
+<span class="token punctuation">{</span>
+ <span class="token keyword">public</span> T <span class="token generic-method function">GenericMethod<span class="token punctuation">&lt;</span>T<span class="token punctuation">></span> </span><span class="token punctuation">(</span>T param<span class="token punctuation">)</span> <span class="token keyword">where</span> T ：<span class="token keyword">class</span>
+ <span class="token punctuation">{</span>
+     <span class="token keyword">return</span> param<span class="token punctuation">;</span>
+ <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 </li>
-<li>T是值类型  <pre class=" language-cs"><code class="language-cs">public class SomeClass
-&#123;
- public T GenericMethod<T> (T param) where T : struct 
- &#123;
-     return param;
- &#125;
-&#125;
+<li>T是值类型  <pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SomeClass</span>
+<span class="token punctuation">{</span>
+ <span class="token keyword">public</span> T <span class="token generic-method function">GenericMethod<span class="token punctuation">&lt;</span>T<span class="token punctuation">></span> </span><span class="token punctuation">(</span>T param<span class="token punctuation">)</span> <span class="token keyword">where</span> T <span class="token punctuation">:</span> <span class="token keyword">struct</span> 
+ <span class="token punctuation">{</span>
+     <span class="token keyword">return</span> param<span class="token punctuation">;</span>
+ <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 </li>
-<li>不含参数的公共构造函数  <pre class=" language-cs"><code class="language-cs">public class SomeClass
-&#123;
- public T GenericMethod<T> (T param) where T :new ()
- &#123;
-     return param;
- &#125;
-&#125;
+<li>不含参数的公共构造函数  <pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SomeClass</span>
+<span class="token punctuation">{</span>
+ <span class="token keyword">public</span> T <span class="token generic-method function">GenericMethod<span class="token punctuation">&lt;</span>T<span class="token punctuation">></span> </span><span class="token punctuation">(</span>T param<span class="token punctuation">)</span> <span class="token keyword">where</span> T <span class="token punctuation">:</span><span class="token keyword">new</span> <span class="token punctuation">(</span><span class="token punctuation">)</span>
+ <span class="token punctuation">{</span>
+     <span class="token keyword">return</span> param<span class="token punctuation">;</span>
+ <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 </li>
-<li>class name 限制为具体某个类型  <pre class=" language-cs"><code class="language-cs">public class SomeClass
-&#123;
- public T GenericMethod<T> (T param) where T: Transform
- &#123;
-     return param;
- &#125;
-&#125;
+<li>class name 限制为具体某个类型  <pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SomeClass</span>
+<span class="token punctuation">{</span>
+ <span class="token keyword">public</span> T <span class="token generic-method function">GenericMethod<span class="token punctuation">&lt;</span>T<span class="token punctuation">></span> </span><span class="token punctuation">(</span>T param<span class="token punctuation">)</span> <span class="token keyword">where</span> T<span class="token punctuation">:</span> Transform
+ <span class="token punctuation">{</span>
+     <span class="token keyword">return</span> param<span class="token punctuation">;</span>
+ <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 </li>
-<li>Interfaces 接口类型  <pre class=" language-cs"><code class="language-cs">public class SomeClass
-&#123;
- public T GenericMethod<T> (T param) where T :IEnumerable
- &#123;
-     return param;
- &#125;
-&#125;
+<li>Interfaces 接口类型  <pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SomeClass</span>
+<span class="token punctuation">{</span>
+ <span class="token keyword">public</span> T <span class="token generic-method function">GenericMethod<span class="token punctuation">&lt;</span>T<span class="token punctuation">></span> </span><span class="token punctuation">(</span>T param<span class="token punctuation">)</span> <span class="token keyword">where</span> T <span class="token punctuation">:</span>IEnumerable
+ <span class="token punctuation">{</span>
+     <span class="token keyword">return</span> param<span class="token punctuation">;</span>
+ <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 </li>
 </ol>
@@ -811,6 +808,14 @@
 <!-- 代码块收缩 -->
 
 <script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
 
 
     </div>

@@ -401,32 +401,29 @@
         <hr class="clearfix">
 
         
-        <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="/libs/prism/prism.css">
-        
 
         
 
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h1><p>接口是把公共实例（非静态）方法和属性组合起来，以封装特定功能的一个集合。<br><font color =#00ffff>接口不能单独存在，不能像实例化一个类那样实例化接口。另外，接口不能包含实现其成员的任何代码，只能定义成员本身。实现的过程需要在实现接口的类中完成。</font>  </p>
-<pre class=" language-cs"><code class="language-cs">public Interface IKillable&#123;
-    void kill();
-&#125;
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">public</span> Interface <span class="token class-name">IKillable</span><span class="token punctuation">{</span>
+    <span class="token keyword">void</span> <span class="token function">kill</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-public Interface IDamageable<T>&#123;
-    void Damage(T damageTaken);
-&#125;
+<span class="token keyword">public</span> Interface <span class="token class-name">IDamageable</span><span class="token operator">&lt;</span>T<span class="token operator">></span><span class="token punctuation">{</span>
+    <span class="token keyword">void</span> <span class="token function">Damage</span><span class="token punctuation">(</span>T damageTaken<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 </code></pre>
-<pre class=" language-cs"><code class="language-cs">public class Avatar : MonoBehaviour ,IKillable,IDamageable<float>&#123;
-    public void kill()&#123;
-        //TODO: do something
-    &#125;
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Avatar</span> <span class="token punctuation">:</span> MonoBehaviour <span class="token punctuation">,</span>IKillable<span class="token punctuation">,</span>IDamageable<span class="token operator">&lt;</span><span class="token keyword">float</span><span class="token operator">></span><span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">kill</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//TODO: do something</span>
+    <span class="token punctuation">}</span>
 
-    public void Damage(float damage)&#123;
-        //TODO: do something
-    &#125;
-&#125;
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">Damage</span><span class="token punctuation">(</span><span class="token keyword">float</span> damage<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//TODO: do something</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 
                 
@@ -778,6 +775,14 @@ public Interface IDamageable<T>&#123;
 <!-- 代码块收缩 -->
 
 <script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
 
 
     </div>

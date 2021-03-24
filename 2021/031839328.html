@@ -401,21 +401,18 @@
         <hr class="clearfix">
 
         
-        <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="/libs/prism/prism.css">
-        
 
         
 
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="三元运算符"><a href="#三元运算符" class="headerlink" title="三元运算符"></a>三元运算符</h1><p>三元运算符是 if else 的另一种写法，在某些情况下，比if-else 更加简洁。<br>具体写法如下：  </p>
-<pre class=" language-cs"><code class="language-cs">public class Test&#123;
-    private int a =1;
-    private int b =3;
-    private int max;
-    max=  a>b?a:b;
-&#125;
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Test</span><span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token keyword">int</span> a <span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">int</span> b <span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">int</span> max<span class="token punctuation">;</span>
+    max<span class="token operator">=</span>  a<span class="token operator">></span>b<span class="token operator">?</span>a<span class="token punctuation">:</span>b<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <p>上面的意思是 a&gt;b的话，max=a，否则max=b</p>
 
@@ -768,6 +765,14 @@
 <!-- 代码块收缩 -->
 
 <script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
 
 
     </div>

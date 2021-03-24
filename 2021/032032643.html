@@ -405,9 +405,6 @@
         <hr class="clearfix">
 
         
-        <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="/libs/prism/prism.css">
-        
 
         
 
@@ -421,66 +418,66 @@
 <li><p>将相机移动为Capsule子物体并移动到上方<br><img src="https://i.loli.net/2021/03/20/vfX5h6b8Y7QeKAm.png"></p>
 </li>
 <li><p>位相机添加MouseContronller 脚本</p>
-<pre class=" language-cs"><code class="language-cs">public class MouseController : MonoBehaviour
-&#123;
- public Transform player ;
- public float mouseSpeed =100f;
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MouseController</span> <span class="token punctuation">:</span> MonoBehaviour
+<span class="token punctuation">{</span>
+ <span class="token keyword">public</span> Transform player <span class="token punctuation">;</span>
+ <span class="token keyword">public</span> <span class="token keyword">float</span> mouseSpeed <span class="token operator">=</span><span class="token number">100f</span><span class="token punctuation">;</span>
 
- float xRotation;
- void Update()&#123;
-     float mouseX =Input.GetAxis("Mouse X") * mouseSpeed * Time.deltaTime;
-     float mouseY =Input.GetAxis("Mouse Y") * mouseSpeed * Time.deltaTime ;
+ <span class="token keyword">float</span> xRotation<span class="token punctuation">;</span>
+ <span class="token keyword">void</span> <span class="token function">Update</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+     <span class="token keyword">float</span> mouseX <span class="token operator">=</span>Input<span class="token punctuation">.</span><span class="token function">GetAxis</span><span class="token punctuation">(</span><span class="token string">"Mouse X"</span><span class="token punctuation">)</span> <span class="token operator">*</span> mouseSpeed <span class="token operator">*</span> Time<span class="token punctuation">.</span>deltaTime<span class="token punctuation">;</span>
+     <span class="token keyword">float</span> mouseY <span class="token operator">=</span>Input<span class="token punctuation">.</span><span class="token function">GetAxis</span><span class="token punctuation">(</span><span class="token string">"Mouse Y"</span><span class="token punctuation">)</span> <span class="token operator">*</span> mouseSpeed <span class="token operator">*</span> Time<span class="token punctuation">.</span>deltaTime <span class="token punctuation">;</span>
 
-     xRotation -= mouseY;
+     xRotation <span class="token operator">-</span><span class="token operator">=</span> mouseY<span class="token punctuation">;</span>
 
-     xRotation =Mathf.Clamp(xRotation,-90f,90f);
+     xRotation <span class="token operator">=</span>Mathf<span class="token punctuation">.</span><span class="token function">Clamp</span><span class="token punctuation">(</span>xRotation<span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">90f</span><span class="token punctuation">,</span><span class="token number">90f</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-     tranform.LocalRotation = Quaternion.Euler(xRotation,0,0);
+     tranform<span class="token punctuation">.</span>LocalRotation <span class="token operator">=</span> Quaternion<span class="token punctuation">.</span><span class="token function">Euler</span><span class="token punctuation">(</span>xRotation<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-     player.Rotate(Vector3.up*mouseX);
+     player<span class="token punctuation">.</span><span class="token function">Rotate</span><span class="token punctuation">(</span>Vector3<span class="token punctuation">.</span>up<span class="token operator">*</span>mouseX<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
- &#125;
-&#125;
+ <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <p><img src="https://i.loli.net/2021/03/20/Gi8OlkIATPYsUnH.png" alt="控制上下左右旋转代码">  </p>
 </li>
 <li><p>为人物添加PlayerController 代码  </p>
-<pre class=" language-cs"><code class="language-cs">public class PlayerController : MonoBehaviour
-&#123;
- public CharacterController controller;
- public Transform checkPoint;
- public LayerMask ground;
- private float radius;
- private float speed = 3.0f;
- private float gravity =-9.81f;
- private float jumpHeight = 3.0f;
- private Vector3 velocity;
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">PlayerController</span> <span class="token punctuation">:</span> MonoBehaviour
+<span class="token punctuation">{</span>
+ <span class="token keyword">public</span> CharacterController controller<span class="token punctuation">;</span>
+ <span class="token keyword">public</span> Transform checkPoint<span class="token punctuation">;</span>
+ <span class="token keyword">public</span> LayerMask ground<span class="token punctuation">;</span>
+ <span class="token keyword">private</span> <span class="token keyword">float</span> radius<span class="token punctuation">;</span>
+ <span class="token keyword">private</span> <span class="token keyword">float</span> speed <span class="token operator">=</span> <span class="token number">3.0f</span><span class="token punctuation">;</span>
+ <span class="token keyword">private</span> <span class="token keyword">float</span> gravity <span class="token operator">=</span><span class="token operator">-</span><span class="token number">9.81f</span><span class="token punctuation">;</span>
+ <span class="token keyword">private</span> <span class="token keyword">float</span> jumpHeight <span class="token operator">=</span> <span class="token number">3.0f</span><span class="token punctuation">;</span>
+ <span class="token keyword">private</span> Vector3 velocity<span class="token punctuation">;</span>
 
- bool isGround;
- void Update()&#123;
-     isGround = Physics.CheckSphere(checkPoint , radius ,ground);
-     if (isGround && velocity.y<=0>)
-     &#123;
-         velocity.y=-1f;
-     &#125;
+ <span class="token keyword">bool</span> isGround<span class="token punctuation">;</span>
+ <span class="token keyword">void</span> <span class="token function">Update</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+     isGround <span class="token operator">=</span> Physics<span class="token punctuation">.</span><span class="token function">CheckSphere</span><span class="token punctuation">(</span>checkPoint <span class="token punctuation">,</span> radius <span class="token punctuation">,</span>ground<span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token keyword">if</span> <span class="token punctuation">(</span>isGround <span class="token operator">&amp;&amp;</span> velocity<span class="token punctuation">.</span>y<span class="token operator">&lt;=</span><span class="token number">0</span><span class="token operator">></span><span class="token punctuation">)</span>
+     <span class="token punctuation">{</span>
+         velocity<span class="token punctuation">.</span>y<span class="token operator">=</span><span class="token operator">-</span><span class="token number">1f</span><span class="token punctuation">;</span>
+     <span class="token punctuation">}</span>
 
-     float x = Input.GetAxis("Horizontal");
-     float z = Input.GetAxis("Vetical");
+     <span class="token keyword">float</span> x <span class="token operator">=</span> Input<span class="token punctuation">.</span><span class="token function">GetAxis</span><span class="token punctuation">(</span><span class="token string">"Horizontal"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token keyword">float</span> z <span class="token operator">=</span> Input<span class="token punctuation">.</span><span class="token function">GetAxis</span><span class="token punctuation">(</span><span class="token string">"Vetical"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-     Vector3 move = tranform.rigth*x + tranform.forward * z;
+     Vector3 move <span class="token operator">=</span> tranform<span class="token punctuation">.</span>rigth<span class="token operator">*</span>x <span class="token operator">+</span> tranform<span class="token punctuation">.</span>forward <span class="token operator">*</span> z<span class="token punctuation">;</span>
 
-     if (isGround && Input.GetButtonDwon("Jump"))
-     &#123;
-         velocity.y = Mathf.Sqrt(jumpHeight*-3.0f * gravity);
-     &#125;
+     <span class="token keyword">if</span> <span class="token punctuation">(</span>isGround <span class="token operator">&amp;&amp;</span> Input<span class="token punctuation">.</span><span class="token function">GetButtonDwon</span><span class="token punctuation">(</span><span class="token string">"Jump"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+     <span class="token punctuation">{</span>
+         velocity<span class="token punctuation">.</span>y <span class="token operator">=</span> Mathf<span class="token punctuation">.</span><span class="token function">Sqrt</span><span class="token punctuation">(</span>jumpHeight<span class="token operator">*</span><span class="token operator">-</span><span class="token number">3.0f</span> <span class="token operator">*</span> gravity<span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token punctuation">}</span>
 
-     controller.Move(move* speed * Time.deltaTime);
+     controller<span class="token punctuation">.</span><span class="token function">Move</span><span class="token punctuation">(</span>move<span class="token operator">*</span> speed <span class="token operator">*</span> Time<span class="token punctuation">.</span>deltaTime<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-     velocity.y += gravity*Time.deltaTime;
-     controller.Move(velocity*Time.deltaTime);
-     &#125;
- &#125;
-&#125;
+     velocity<span class="token punctuation">.</span>y <span class="token operator">+</span><span class="token operator">=</span> gravity<span class="token operator">*</span>Time<span class="token punctuation">.</span>deltaTime<span class="token punctuation">;</span>
+     controller<span class="token punctuation">.</span><span class="token function">Move</span><span class="token punctuation">(</span>velocity<span class="token operator">*</span>Time<span class="token punctuation">.</span>deltaTime<span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token punctuation">}</span>
+ <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <p><img src="https://i.loli.net/2021/03/20/g2oNOcEVZLj5X6J.png" alt="人物移动及掉落代码">    </p>
 </li>
@@ -844,6 +841,14 @@
 <!-- 代码块收缩 -->
 
 <script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
 
 
     </div>

@@ -401,9 +401,6 @@
         <hr class="clearfix">
 
         
-        <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="/libs/prism/prism.css">
-        
 
         
 
@@ -419,114 +416,125 @@
 <h2 id="观察者模式的简单实现："><a href="#观察者模式的简单实现：" class="headerlink" title="观察者模式的简单实现："></a><font color =#00ffff>观察者模式的简单实现：</font></h2><p>接下来以订阅号为例，实现简单的观察者模式：  </p>
 <ol>
 <li><p><font color = #00ffff>订阅号抽象类：  </font></p>
-<pre class="line-numbers language-cs" data-language="cs"><code class="language-cs">public abstract class DingYueHao&#123;
-    &#x2F;&#x2F;保存订阅者的列表
-    private List&lt;IObserver&gt; observer &#x3D; new  List&lt;Observer&gt;;
+<pre class=" language-csharp"><code class="language-csharp"> <span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token class-name">DingYueHao</span><span class="token punctuation">{</span>
+     <span class="token comment" spellcheck="true">//保存订阅者的列表</span>
+     <span class="token keyword">private</span> List<span class="token operator">&lt;</span>IObserver<span class="token operator">></span> observer <span class="token operator">=</span> <span class="token keyword">new</span>  <span class="token class-name">List</span><span class="token operator">&lt;</span>Observer<span class="token operator">></span><span class="token punctuation">;</span>
 
-    public strig Text&#123;get ; set;&#125;
-    public string Info &#123; get ; set;&#125;
+     <span class="token keyword">public</span> strig Text<span class="token punctuation">{</span><span class="token keyword">get</span> <span class="token punctuation">;</span> <span class="token keyword">set</span><span class="token punctuation">;</span><span class="token punctuation">}</span>
+     <span class="token keyword">public</span> <span class="token keyword">string</span> Info <span class="token punctuation">{</span> <span class="token keyword">get</span> <span class="token punctuation">;</span> <span class="token keyword">set</span><span class="token punctuation">;</span><span class="token punctuation">}</span>
 
-    public DingYueHao(string text , string info)&#123;
-        this.Text&#x3D;text;
-        this.Info &#x3D;info;
-    &#125;
-    &#x2F;&#x2F;加入观察者(订阅的人)
-    public void AddObserver(IObserver ob)&#123;
-        observer.Add(ob);
-    &#125;
+     <span class="token keyword">public</span> <span class="token function">DingYueHao</span><span class="token punctuation">(</span><span class="token keyword">string</span> text <span class="token punctuation">,</span> <span class="token keyword">string</span> info<span class="token punctuation">)</span><span class="token punctuation">{</span>
+         <span class="token keyword">this</span><span class="token punctuation">.</span>Text<span class="token operator">=</span>text<span class="token punctuation">;</span>
+         <span class="token keyword">this</span><span class="token punctuation">.</span>Info <span class="token operator">=</span>info<span class="token punctuation">;</span>
+     <span class="token punctuation">}</span>
+     <span class="token comment" spellcheck="true">//加入观察者(订阅的人)</span>
+     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">AddObserver</span><span class="token punctuation">(</span>IObserver ob<span class="token punctuation">)</span><span class="token punctuation">{</span>
+         observer<span class="token punctuation">.</span><span class="token function">Add</span><span class="token punctuation">(</span>ob<span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token punctuation">}</span>
 
-    &#x2F;&#x2F;移除观察者
-    public void RemoveObserver(IObserver ob)&#123;
-        observer.Remove(ob);
-    &#125;
+     <span class="token comment" spellcheck="true">//移除观察者</span>
+     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">RemoveObserver</span><span class="token punctuation">(</span>IObserver ob<span class="token punctuation">)</span><span class="token punctuation">{</span>
+         observer<span class="token punctuation">.</span><span class="token function">Remove</span><span class="token punctuation">(</span>ob<span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token punctuation">}</span>
 
-    public void Update()&#123;
-        &#x2F;&#x2F;遍历订阅的人，进行通知
-        foreach (IObserver ob in observer)
-        &#123;
-            if (ob!&#x3D;null)
-            &#123;
-                &#x2F;&#x2F;TODO 通知事项
-                ob.ReceiveMessage(this);
-            &#125;
-        &#125;
-    &#125;
+     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">Update</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+         <span class="token comment" spellcheck="true">//遍历订阅的人，进行通知</span>
+         <span class="token keyword">foreach</span> <span class="token punctuation">(</span>IObserver ob <span class="token keyword">in</span> observer<span class="token punctuation">)</span>
+         <span class="token punctuation">{</span>
+             <span class="token keyword">if</span> <span class="token punctuation">(</span>ob<span class="token operator">!=</span><span class="token keyword">null</span><span class="token punctuation">)</span>
+             <span class="token punctuation">{</span>
+                 <span class="token comment" spellcheck="true">//TODO 通知事项</span>
+                 ob<span class="token punctuation">.</span><span class="token function">ReceiveMessage</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+             <span class="token punctuation">}</span>
+         <span class="token punctuation">}</span>
+     <span class="token punctuation">}</span>
 
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p><font color = #00ffff> 具体的订阅号类 </font>  </p>
-<pre class="line-numbers language-cs" data-language="cs"><code class="language-cs">public class EasyyGame:DingYueHao
-&#123;
-        
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p><font color =#00ffff> 订阅者接口</font></p>
-<pre class="line-numbers language-cs" data-language="cs"><code class="language-cs">public interface IObserver
+ <span class="token punctuation">}</span>
+</code></pre>
+</li>
+<li><p><font color = #00ffff> 具体的订阅号类 </font><br>```csharp<br>public class EasyyGame:DingYueHao<br>{</p>
+</li>
+</ol>
+<p>}</p>
+<pre><code>
+1. &lt;font color =#00ffff&gt; 订阅者接口&lt;/font&gt;
+```csharp
+public interface IObserver
 &#123;
     void ReceiveMessage(DingYueHao dyh);
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p><font color =#00ffff >具体的订阅者 </font></p>
-<pre class="line-numbers language-cs" data-language="cs"><code class="language-cs">public class Subscriber:IObserver
-&#123;
-    public string Name&#123;get;set;&#125;
-    public Subscriber(string name)&#123;
-        this.Name &#x3D;name;
-    &#125;
-    void ReceiveMessage(DingYueHao dyh)&#123;
-        console.writeline(&quot;notifide&#123;0&#125;of&#123;1&#125;&quot;+&quot;info is&#123;2&#125;&quot;,Name ,dyh.Text,dyh.Info)
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p><font color =#00ffff> 测试类</font></p>
-<pre class="line-numbers language-cs" data-language="cs"><code class="language-cs">class Test
-&#123;
-    static void main(string[] args)&#123;
-        DingYueHao dyh &#x3D;new EasyyGame(&quot;Easyy!&quot;,&quot;new game published!&quot;);
-        dyh.AddObserver(new Subscriber(&quot;Tom&quot;));
-        dyh.Update();
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+&#125;
+</code></pre>
+<ol start="4">
+<li><font color =#00ffff >具体的订阅者 </font><pre class=" language-csharp"><code class="language-csharp"> <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Subscriber</span><span class="token punctuation">:</span>IObserver
+ <span class="token punctuation">{</span>
+     <span class="token keyword">public</span> <span class="token keyword">string</span> Name<span class="token punctuation">{</span><span class="token keyword">get</span><span class="token punctuation">;</span><span class="token keyword">set</span><span class="token punctuation">;</span><span class="token punctuation">}</span>
+     <span class="token keyword">public</span> <span class="token function">Subscriber</span><span class="token punctuation">(</span><span class="token keyword">string</span> name<span class="token punctuation">)</span><span class="token punctuation">{</span>
+         <span class="token keyword">this</span><span class="token punctuation">.</span>Name <span class="token operator">=</span>name<span class="token punctuation">;</span>
+     <span class="token punctuation">}</span>
+     <span class="token keyword">void</span> <span class="token function">ReceiveMessage</span><span class="token punctuation">(</span>DingYueHao dyh<span class="token punctuation">)</span><span class="token punctuation">{</span>
+         console<span class="token punctuation">.</span><span class="token function">writeline</span><span class="token punctuation">(</span><span class="token string">"notifide{0}of{1}"</span><span class="token operator">+</span><span class="token string">"info is{2}"</span><span class="token punctuation">,</span>Name <span class="token punctuation">,</span>dyh<span class="token punctuation">.</span>Text<span class="token punctuation">,</span>dyh<span class="token punctuation">.</span>Info<span class="token punctuation">)</span>
+     <span class="token punctuation">}</span>
+ <span class="token punctuation">}</span>
+</code></pre>
+</li>
+<li><font color =#00ffff> 测试类</font><pre class=" language-csharp"><code class="language-csharp"> <span class="token keyword">class</span> <span class="token class-name">Test</span>
+ <span class="token punctuation">{</span>
+     <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span><span class="token punctuation">{</span>
+         DingYueHao dyh <span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">EasyyGame</span><span class="token punctuation">(</span><span class="token string">"Easyy!"</span><span class="token punctuation">,</span><span class="token string">"new game published!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         dyh<span class="token punctuation">.</span><span class="token function">AddObserver</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Subscriber</span><span class="token punctuation">(</span><span class="token string">"Tom"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         dyh<span class="token punctuation">.</span><span class="token function">Update</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token punctuation">}</span>
+ <span class="token punctuation">}</span>
+</code></pre>
+</li>
 </ol>
 <h2 id="具体的游戏案例"><a href="#具体的游戏案例" class="headerlink" title="具体的游戏案例"></a>具体的游戏案例</h2><p>我们需要在游戏结束时，利用GameManager 通知所有敌人：玩家已经死亡，停止移动、播放胜利动画等等。<br>订阅者接口：IEndGameObserver  –&gt; Notify()<br>具体主题角色：GameManager<br>观察者：EnemyController</p>
 <ol>
 <li><p><font color = #00ffff> 具体主题角色 </font>  </p>
-<pre class="line-numbers language-cs" data-language="cs"><code class="language-cs">public GameManager :Mono&#123;
-    public static GameManager instance;
-    List&lt;IEndGameObserver&gt; observer &#x3D;new List&lt;IEndGameObserver&gt;;
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">public</span> GameManager <span class="token punctuation">:</span>Mono<span class="token punctuation">{</span>
+ <span class="token keyword">public</span> <span class="token keyword">static</span> GameManager instance<span class="token punctuation">;</span>
+ List<span class="token operator">&lt;</span>IEndGameObserver<span class="token operator">></span> observer <span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">List</span><span class="token operator">&lt;</span>IEndGameObserver<span class="token operator">></span><span class="token punctuation">;</span>
 
-    public void AddObserver(IEndGameObserver ob)&#123;
-        observer.Add(ob);
-    &#125;
+ <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">AddObserver</span><span class="token punctuation">(</span>IEndGameObserver ob<span class="token punctuation">)</span><span class="token punctuation">{</span>
+     observer<span class="token punctuation">.</span><span class="token function">Add</span><span class="token punctuation">(</span>ob<span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token punctuation">}</span>
 
-    public void RemoveObserver(IEndGameObserver ob)&#123;
-        observer.Remove(ob);
-    &#125;
+ <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">RemoveObserver</span><span class="token punctuation">(</span>IEndGameObserver ob<span class="token punctuation">)</span><span class="token punctuation">{</span>
+     observer<span class="token punctuation">.</span><span class="token function">Remove</span><span class="token punctuation">(</span>ob<span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token punctuation">}</span>
 
-    public void EndNotify()&#123;
-        foreach (var ob in observer)
-        &#123;
-            ob.Notify();
-        &#125;
-    &#125;
+ <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">EndNotify</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+     <span class="token keyword">foreach</span> <span class="token punctuation">(</span><span class="token keyword">var</span> ob <span class="token keyword">in</span> observer<span class="token punctuation">)</span>
+     <span class="token punctuation">{</span>
+         ob<span class="token punctuation">.</span><span class="token function">Notify</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token punctuation">}</span>
+ <span class="token punctuation">}</span>
 
-    if (玩家死亡)
-    &#123;
-        EndNotify();
-    &#125;
-&#125;  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+ <span class="token keyword">if</span> <span class="token punctuation">(</span>玩家死亡<span class="token punctuation">)</span>
+ <span class="token punctuation">{</span>
+     <span class="token function">EndNotify</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>  
+</code></pre>
+</li>
 <li><p><font color =#00ffff>订阅者接口</font>  </p>
-<pre class="line-numbers language-cs" data-language="cs"><code class="language-cs">public interface IEndGameObserver
-&#123;
-    void Notify();
-&#125;  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">IEndGameObserver</span>
+<span class="token punctuation">{</span>
+ <span class="token keyword">void</span> <span class="token function">Notify</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>  
+</code></pre>
+</li>
 <li><p><font color =#00ffff>订阅者</font>  </p>
 </li>
 </ol>
-<pre class="line-numbers language-cs" data-language="cs"><code class="language-cs">public class EnemyController : Mono ,IEndGameObserver&#123;
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">EnemyController</span> <span class="token punctuation">:</span> Mono <span class="token punctuation">,</span>IEndGameObserver<span class="token punctuation">{</span>
 
-    instance.AddObserver(this)
-    void Notify()&#123;
-        &#x2F;&#x2F;TODO: 玩家死亡之后的一系列动作
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+    instance<span class="token punctuation">.</span><span class="token function">AddObserver</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span>
+    <span class="token keyword">void</span> <span class="token function">Notify</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//TODO: 玩家死亡之后的一系列动作</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
 <h2 id="观察者模式的优缺点"><a href="#观察者模式的优缺点" class="headerlink" title="观察者模式的优缺点"></a>观察者模式的优缺点</h2><p>优点： </p>
 <ul>
 <li> 观察者模式实现了表示层和数据逻辑层的分离，并定义了稳定的更新消息传递机制，并抽象了更新接口，使得可以有各种各样不同的表示层，即观察者。</li>
@@ -882,6 +890,14 @@
 <!-- 代码块收缩 -->
 
 <script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
 
 
     </div>

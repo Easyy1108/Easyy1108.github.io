@@ -397,9 +397,6 @@
         <hr class="clearfix">
 
         
-        <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="/libs/prism/prism.css">
-        
 
         
 
@@ -407,107 +404,86 @@
             <div id="articleContent">
                 <h1 id="常用字符串操作"><a href="#常用字符串操作" class="headerlink" title="常用字符串操作"></a>常用字符串操作</h1><ol>
 <li><p><font color =#00ffff>变量.Length：取字符串长度:</font><br>如:  </p>
-<pre class="line-numbers language-cs" data-language="cs"><code class="language-cs">String  str&#x3D;”hello”;  
-Int len&#x3D;str.Length;&#x2F;&#x2F;Len是自定义变量，str是字符串的变量名  
-Console.WriteLine(&quot;&#123;0&#125;&quot;,len);   
-&#96;&#96;&#96;  
-输出结果：5  
-
-2. &lt;font color &#x3D;#00ffff&gt;变量.Substring(参数1,参数2):&lt;&#x2F;font&gt;  
-截取字串的一部分，参数1为左起始位数，参数2为截取几位。  
-如:  
-&#96;&#96;&#96;cs  
-string  str&#x3D;”hello”;  
-Console.WriteLine(&quot;&#123;0&#125;&quot;,str.Substring(1,2));
-&#96;&#96;&#96;  
-输出结果：el  
-3. &lt;font color &#x3D;#00ffff&gt;char.IsWh iteSpace(字符串变量，位数)&lt;&#x2F;font&gt;  
-查指定位置是否空字符  
-&#96;&#96;&#96;cs  
-string str&#x3D;&quot;he llo&quot;; 
-Console.WriteLine (char.IsWhiteSpace(str,2)); 
-&#96;&#96;&#96;  
-输出结果：True  
-4. &lt;font color &#x3D;#00ffff&gt;char.IsPunctuation(&#39;字符&#39;)&lt;&#x2F;font&gt;  
-查字符是否是标点符号  
-&#96;&#96;&#96;cs  
-Console.WriteLine (char.IsPunctuation(&#39;a&#39;)); 
-Console.WriteLine (char.IsPunctuation(&#39;!&#39;));<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class=" language-csharp"><code class="language-csharp">String  str<span class="token operator">=</span>”hello”<span class="token punctuation">;</span>  
+Int len<span class="token operator">=</span>str<span class="token punctuation">.</span>Length<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//Len是自定义变量，str是字符串的变量名  </span>
+Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"{0}"</span><span class="token punctuation">,</span>len<span class="token punctuation">)</span><span class="token punctuation">;</span>   
+</code></pre>
+<p>输出结果：5  </p>
+</li>
+<li><p><font color =#00ffff>变量.Substring(参数1,参数2):</font><br>截取字串的一部分，参数1为左起始位数，参数2为截取几位。<br>如:  </p>
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">string</span>  str<span class="token operator">=</span>”hello”<span class="token punctuation">;</span>  
+Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"{0}"</span><span class="token punctuation">,</span>str<span class="token punctuation">.</span><span class="token function">Substring</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>输出结果：el  </p>
+</li>
+<li><p><font color =#00ffff>char.IsWh iteSpace(字符串变量，位数)</font><br>查指定位置是否空字符  </p>
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">string</span> str<span class="token operator">=</span><span class="token string">"he llo"</span><span class="token punctuation">;</span> 
+Console<span class="token punctuation">.</span><span class="token function">WriteLine</span> <span class="token punctuation">(</span><span class="token keyword">char</span><span class="token punctuation">.</span><span class="token function">IsWhiteSpace</span><span class="token punctuation">(</span>str<span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+</code></pre>
+<p>输出结果：True  </p>
+</li>
+<li><p><font color =#00ffff>char.IsPunctuation(‘字符’)</font><br>查字符是否是标点符号  </p>
+<pre class=" language-csharp"><code class="language-csharp">Console<span class="token punctuation">.</span><span class="token function">WriteLine</span> <span class="token punctuation">(</span><span class="token keyword">char</span><span class="token punctuation">.</span><span class="token function">IsPunctuation</span><span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+Console<span class="token punctuation">.</span><span class="token function">WriteLine</span> <span class="token punctuation">(</span><span class="token keyword">char</span><span class="token punctuation">.</span><span class="token function">IsPunctuation</span><span class="token punctuation">(</span><span class="token string">'!'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
 <p>输出结果：False  True  </p>
 </li>
-<li><p><font color =#00ffff>Trim() :</font><br>清除字串前后空格  </p>
-<pre class="line-numbers language-cs" data-language="cs"><code class="language-cs">string str&#x3D;”  hello  ”;
-
-Console.WriteLine(“&#123;0&#125;”,str.Trim());
-&#96;&#96;&#96;  
-输出结果：hello  
-6. &lt;font color &#x3D;#00ffff&gt;变量.Replace(“要替换的”,”替换为”)&lt;&#x2F;font&gt;  
+<li><p><font color =#00ffff>Trim() :</font><br>清除字串前后空格<br>```csharp<br>string str=”  hello  ”;</p>
+</li>
+</ol>
+<p>Console.WriteLine(“{0}”,str.Trim());</p>
+<pre><code>输出结果：hello  
+6. &lt;font color =#00ffff&gt;变量.Replace(“要替换的”,”替换为”)&lt;/font&gt;  
 字符串替换  
-&#96;&#96;&#96;cs  
-string str&#x3D;”helle”;
+```csharp  
+string str=”helle”;
 
 Console.WriteLine(“&#123;0&#125;”,str.Replace(“e”,”o”));
-&#96;&#96;&#96;  
-输出结果：hello  
-7. &lt;font color &#x3D;#00ffff&gt;Split()&lt;&#x2F;font&gt;  
-将字符串拆分为子字符串(如将句子拆分为各个单词)  
-Split() 方法使用分隔符（如空格字符）  
-&#96;&#96;&#96;cs  
-char[] delimit &#x3D; new char[] &#123; &#39; &#39; &#125;;
-string s14 &#x3D; &quot;The cat sat on the mat.&quot;;
-foreach (string substr in s14.Split(delimit))
-&#123;
-    Console.WriteLine(substr);
-&#125;
-&#96;&#96;&#96;  
-输出结果：
+</code></pre>
+<p>输出结果：hello<br>7. <font color =#00ffff>Split()</font><br>将字符串拆分为子字符串(如将句子拆分为各个单词)<br>Split() 方法使用分隔符（如空格字符）  </p>
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">char</span><span class="token punctuation">[</span><span class="token punctuation">]</span> delimit <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">char</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token punctuation">{</span> <span class="token string">' '</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">string</span> s14 <span class="token operator">=</span> <span class="token string">"The cat sat on the mat."</span><span class="token punctuation">;</span>
+<span class="token keyword">foreach</span> <span class="token punctuation">(</span><span class="token keyword">string</span> substr <span class="token keyword">in</span> s14<span class="token punctuation">.</span><span class="token function">Split</span><span class="token punctuation">(</span>delimit<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>substr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>输出结果：</p>
+<p>The</p>
+<p>cat</p>
+<p>sat</p>
+<p>on</p>
+<p>the</p>
+<p>mat.<br>8. <font color =#00ffff>ToUpper() 和 ToLower()：</font><br>更改大小写字母  </p>
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">string</span> str<span class="token operator">=</span>”hello”<span class="token punctuation">;</span>
 
-The
+Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>str<span class="token punctuation">.</span><span class="token function">ToUpper</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>输出结果：HELLO<br>9. <font color =#00ffff>IndexOf() 、LastIndexOf() </font><br>查找字串中指定字符或字串首次（最后一次）出现的位置,返回索引值.  </p>
+<pre class=" language-csharp"><code class="language-csharp"> <span class="token keyword">string</span> str<span class="token operator">=</span>”hello”<span class="token punctuation">;</span>
+str<span class="token punctuation">.</span><span class="token function">IndexOf</span><span class="token punctuation">(</span><span class="token string">"e"</span><span class="token punctuation">)</span>； <span class="token comment" spellcheck="true">//查找“e”在str中的索引值（位置） </span>
 
-cat
+<span class="token comment" spellcheck="true">//结果为：1</span>
 
-sat
+str<span class="token punctuation">.</span><span class="token function">IndexOf</span><span class="token punctuation">(</span><span class="token string">"ll"</span><span class="token punctuation">)</span>；<span class="token comment" spellcheck="true">//查找“el”的第一个字符在str中的索引值（位置） </span>
 
-on
-
-the
-
-mat.  
-8. &lt;font color &#x3D;#00ffff&gt;ToUpper() 和 ToLower()：&lt;&#x2F;font&gt;  
-更改大小写字母  
-&#96;&#96;&#96;cs  
-string str&#x3D;”hello”;
-
-Console.WriteLine(str.ToUpper());
-&#96;&#96;&#96;  
-输出结果：HELLO  
-9. &lt;font color &#x3D;#00ffff&gt;IndexOf() 、LastIndexOf() &lt;&#x2F;font&gt;  
-查找字串中指定字符或字串首次（最后一次）出现的位置,返回索引值.  
-&#96;&#96;&#96;cs  
- string str&#x3D;”hello”;
-str.IndexOf(&quot;e&quot;)； &#x2F;&#x2F;查找“e”在str中的索引值（位置） 
-
-&#x2F;&#x2F;结果为：1
-
-str.IndexOf(&quot;ll&quot;)；&#x2F;&#x2F;查找“el”的第一个字符在str中的索引值（位置） 
-
-&#x2F;&#x2F;结果为：2
+<span class="token comment" spellcheck="true">//结果为：2</span>
 
 
-str.IndexOf(&quot;字串&quot;,3,2)；&#x2F;&#x2F;从str1第4个字符起，查找2个字符，查找“字串”的第一个字符在str1中的索引值（位置）
+str<span class="token punctuation">.</span><span class="token function">IndexOf</span><span class="token punctuation">(</span><span class="token string">"字串"</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span>；<span class="token comment" spellcheck="true">//从str1第4个字符起，查找2个字符，查找“字串”的第一个字符在str1中的索引值（位置）</span>
 
-tring str&#x3D;”hellogood”;
-str.IndexOf(“og”,3,2);
-&#x2F;&#x2F;输出结果：-1
-&#96;&#96;&#96;  
-
-10. &lt;font color &#x3D;#00ffff&gt;str1.EndsWith(str2)&lt;&#x2F;font&gt;   
-检测字串str1是否以字串str2结尾,返回布尔值.  
-&#96;&#96;&#96;cs  
-string str1 &#x3D; &quot;hi,hello&quot;;
-string str2 &#x3D; &quot;hello&quot;;
-Console.WriteLine(&quot;.EndsWith的用法”+ str1.EndsWith(str2));
-&#x2F;&#x2F;输出结果：True  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+tring str<span class="token operator">=</span>”hellogood”<span class="token punctuation">;</span>
+str<span class="token punctuation">.</span><span class="token function">IndexOf</span><span class="token punctuation">(</span>“og”<span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//输出结果：-1</span>
+</code></pre>
+<ol start="10">
+<li><p><font color =#00ffff>str1.EndsWith(str2)</font><br>检测字串str1是否以字串str2结尾,返回布尔值.  </p>
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">string</span> str1 <span class="token operator">=</span> <span class="token string">"hi,hello"</span><span class="token punctuation">;</span>
+<span class="token keyword">string</span> str2 <span class="token operator">=</span> <span class="token string">"hello"</span><span class="token punctuation">;</span>
+Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>"<span class="token punctuation">.</span>EndsWith的用法”<span class="token operator">+</span> str1<span class="token punctuation">.</span><span class="token function">EndsWith</span><span class="token punctuation">(</span>str2<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//输出结果：True  </span>
+</code></pre>
+</li>
 <li><p> <font color =#00ffff>str1.Equals(str2)</font><br>检测字串str1是否与字串str2相等,返回布尔值  </p>
 </li>
 <li><p><font color =#00ffff>Insert()</font><br>在字串中指定索引位插入指定字符。  </p>
@@ -841,6 +817,14 @@ Console.WriteLine(&quot;.EndsWith的用法”+ str1.EndsWith(str2));
 <!-- 代码块收缩 -->
 
 <script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
 
 
     </div>

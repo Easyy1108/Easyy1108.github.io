@@ -401,34 +401,31 @@
         <hr class="clearfix">
 
         
-        <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="/libs/prism/prism.css">
-        
 
         
 
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="成员隐藏"><a href="#成员隐藏" class="headerlink" title="成员隐藏"></a>成员隐藏</h1><p>通过继承，父类的成员在子类中自动可用，或者继承到子类中。<br>在子类中重新创建即重新声明父类成员的过程叫做成员隐藏。<br>隐藏成员同样通过new关键字实现，不过方式略有不同。  </p>
-<pre class=" language-cs"><code class="language-cs">public class Humanoid&#123;
-    public  void Yell()&#123;
-        //叫
-    &#125;
-&#125;
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Humanoid</span><span class="token punctuation">{</span>
+    <span class="token keyword">public</span>  <span class="token keyword">void</span> <span class="token function">Yell</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//叫</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
-public class Enemy : Humanoid
-&#123;
-    public new void Yell()&#123;
-        //跑
-    &#125;
-&#125;  
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Enemy</span> <span class="token punctuation">:</span> Humanoid
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">new</span> <span class="token class-name">void</span> <span class="token function">Yell</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//跑</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>  
 
-public class Silme : Enemy
-&#123;
-    public new void Yell()&#123;
-        //攻击
-    &#125;
-&#125;
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Silme</span> <span class="token punctuation">:</span> Enemy
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">new</span> <span class="token class-name">void</span> <span class="token function">Yell</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//攻击</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 
                 
@@ -776,6 +773,14 @@ public class Silme : Enemy
 <!-- 代码块收缩 -->
 
 <script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
 
 
     </div>

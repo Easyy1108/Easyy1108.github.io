@@ -397,37 +397,36 @@
         <hr class="clearfix">
 
         
-        <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="/libs/prism/prism.css">
-        
 
         
 
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><ol>
-<li><font color =#00ffff>声明数组：</font><br>采用以下方式声明数组  <pre class="line-numbers language-cs" data-language="cs"><code class="language-cs">&lt;TypeNmae&gt;[] name;  
-&#x2F;&#x2F;例如
-int[] array;
-array[10]&#x3D;5;
-&#x2F;&#x2F;1
-int[] array&#x3D;&#123;1,2,3,4,5&#125;;
-&#x2F;&#x2F;2
-int[] array&#x3D;new int[5];
-&#x2F;&#x2F;3
-int[] array&#x3D;new int[5]&#123;1,2,3,4,5&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><font color =#00ffff>声明数组：</font><br>采用以下方式声明数组  <pre class=" language-csharp"><code class="language-csharp"><span class="token operator">&lt;</span>TypeNmae<span class="token operator">></span><span class="token punctuation">[</span><span class="token punctuation">]</span> name<span class="token punctuation">;</span>  
+<span class="token comment" spellcheck="true">//例如</span>
+<span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> array<span class="token punctuation">;</span>
+array<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//1</span>
+<span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> array<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//2</span>
+<span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> array<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">int</span><span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//3</span>
+<span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> array<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">int</span><span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+</li>
 </ol>
 <h1 id="多维数组"><a href="#多维数组" class="headerlink" title="多维数组"></a>多维数组</h1><ol>
-<li><font color =#00ffff>数组声明：</font>  <pre class=" language-cs"><code class="language-cs">//二维
-<baseType>[,] <name>;
-//多维只需要加，
-<baseType>[,,,,] <name>;
-//例如
-int[,] array =new int[3,4];
-//
-int[,] array=&#123;&#123;1,2,3,4&#125;,&#123;5,6,7,8&#125;,&#123;9,10,11,12&#125;&#125;;
-//使用
-array[1,2];
+<li><font color =#00ffff>数组声明：</font>  <pre class=" language-csharp"><code class="language-csharp"><span class="token comment" spellcheck="true">//二维</span>
+<span class="token operator">&lt;</span>baseType<span class="token operator">></span><span class="token punctuation">[</span><span class="token punctuation">,</span><span class="token punctuation">]</span> <span class="token operator">&lt;</span>name<span class="token operator">></span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//多维只需要加，</span>
+<span class="token operator">&lt;</span>baseType<span class="token operator">></span><span class="token punctuation">[</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token punctuation">]</span> <span class="token operator">&lt;</span>name<span class="token operator">></span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//例如</span>
+<span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">,</span><span class="token punctuation">]</span> array <span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">int</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//</span>
+<span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">,</span><span class="token punctuation">]</span> array<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">{</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">{</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">11</span><span class="token punctuation">,</span><span class="token number">12</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//使用</span>
+array<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 </code></pre>
 </li>
 </ol>
@@ -769,6 +768,14 @@ array[1,2];
 <!-- 代码块收缩 -->
 
 <script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
 
 
     </div>

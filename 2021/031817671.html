@@ -401,36 +401,33 @@
         <hr class="clearfix">
 
         
-        <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="/libs/prism/prism.css">
-        
 
         
 
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h1><p>我们经常需要在A类中访问B类的成员变量，通常我们会将B类的成员变量设置为public，但是还有更好的方法，那就是使用属性（字段）。  </p>
-<h2 id="创建属性"><a href="#创建属性" class="headerlink" title="创建属性"></a>创建属性</h2><pre class=" language-cs"><code class="language-cs">public class Player &#123;
-    private int experience;
-    //封装属性，一般与字段同名，首字母大写
-    public int Experience
-    &#123;
-        get｛return experience;｝
-        set｛experience =value;｝
-    &#125;
-&#125;  
+<h2 id="创建属性"><a href="#创建属性" class="headerlink" title="创建属性"></a>创建属性</h2><pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Player</span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token keyword">int</span> experience<span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//封装属性，一般与字段同名，首字母大写</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> Experience
+    <span class="token punctuation">{</span>
+        <span class="token keyword">get</span>｛<span class="token keyword">return</span> experience<span class="token punctuation">;</span>｝
+        <span class="token keyword">set</span>｛experience <span class="token operator">=</span><span class="token keyword">value</span><span class="token punctuation">;</span>｝
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>  
 </code></pre>
-<pre class=" language-cs"><code class="language-cs">public class Test
-&#123;
-    Player player =new Player();
-    player.Experience=1;
-    int currentEx=player.Experience;
-&#125;
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Test</span>
+<span class="token punctuation">{</span>
+    Player player <span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">Player</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    player<span class="token punctuation">.</span>Experience<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> currentEx<span class="token operator">=</span>player<span class="token punctuation">.</span>Experience<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <p>虽然 experience 在player类中是私有的，但是通过set 和get 可以访问这个属性。  </p>
 <p>还可以通过get 和 set 来限制只读、只写、可写可读。  </p>
 <p><font color = #00ffff>另外一种写法：  </font>  </p>
-<pre class=" language-cs"><code class="language-cs">public int Level&#123;get;set;&#125;
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">public</span> <span class="token keyword">int</span> Level<span class="token punctuation">{</span><span class="token keyword">get</span><span class="token punctuation">;</span><span class="token keyword">set</span><span class="token punctuation">;</span><span class="token punctuation">}</span>
 </code></pre>
 <p>在vs中可以通过输入 “prpo” 加回车 快速生存</p>
 
@@ -779,6 +776,14 @@
 <!-- 代码块收缩 -->
 
 <script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
 
 
     </div>
