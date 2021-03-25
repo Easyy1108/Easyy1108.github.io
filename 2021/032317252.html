@@ -367,9 +367,13 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E6%95%B0%E7%BB%84/">
+                                <span class="chip bg-color">数组</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -416,7 +420,8 @@ array<span class="token punctuation">[</span><span class="token number">10</span
 </code></pre>
 </li>
 </ol>
-<h1 id="多维数组"><a href="#多维数组" class="headerlink" title="多维数组"></a>多维数组</h1><ol>
+<h1 id="多维数组"><a href="#多维数组" class="headerlink" title="多维数组"></a>多维数组</h1><p>这种数组又叫做矩形数组，其每一行的元素个数都相同。</p>
+<ol>
 <li><font color =#00ffff>数组声明：</font>  <pre class=" language-csharp"><code class="language-csharp"><span class="token comment" spellcheck="true">//二维</span>
 <span class="token operator">&lt;</span>baseType<span class="token operator">></span><span class="token punctuation">[</span><span class="token punctuation">,</span><span class="token punctuation">]</span> <span class="token operator">&lt;</span>name<span class="token operator">></span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">//多维只需要加，</span>
@@ -428,8 +433,21 @@ array<span class="token punctuation">[</span><span class="token number">10</span
 <span class="token comment" spellcheck="true">//使用</span>
 array<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 </code></pre>
+<h1 id="数组的数组"><a href="#数组的数组" class="headerlink" title="数组的数组"></a>数组的数组</h1>这种数组又叫锯齿数组，其每行的元素个数可能不同。  </li>
+<li>声明格式：  <pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">int</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">]</span> jaggedIntArray<span class="token punctuation">;</span>
+</code></pre>
 </li>
+<li>初始化：<br>这种数组的初始化不能像上面的数组一样，例如<font color=#ff0000>不能</font>采用：  <pre class=" language-csharp"><code class="language-csharp">jaggedIntArray <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">int</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+</code></pre>
+即使可以这样做，也不是很有效，因为这样完全可以用多维数组代替，也<font color=#ff0000>不能</font>使用下面的代码：  <pre class=" language-csharp"><code class="language-csharp">jaggedIntArray<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+那么要怎么样声明呢？如下：<br>```csharp<br>jaggedIntArray =new int [2][];<br>jaggedIntArray[0] =new int[3];<br>jaggedIntArray[1]=new int[4];</li>
 </ol>
+<p>//也可以使用：<br>int [][] jaggedIntArray =new {new int[]{1,2,3},new int[]{1},new int[] {1,2,}};</p>
+<pre><code>
+
+   
+</code></pre>
 
                 
             </div>
@@ -493,7 +511,11 @@ array<span class="token punctuation">[</span><span class="token number">1</span>
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/%E6%95%B0%E7%BB%84/">
+                                    <span class="chip bg-color">数组</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
